@@ -3,7 +3,7 @@ package geometries;
 import primitives.Point;
 import primitives.Vector;
 /*
-try
+try COMI
  */
 public class Plane implements Geometry {
      final protected Point  point;
