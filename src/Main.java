@@ -3,7 +3,10 @@ import static primitives.Util.isZero;
 
 import primitives.Point;
 import primitives.Vector;
-
+/*
+* miryam peretz, 322241100, miri2451@gmail.com
+*shirel taieb, 328939608, shirelt1108@gmail.com
+*/
 /** Test program for the 1st stage
  * @author Dan Zilberstein */
 public final class Main {

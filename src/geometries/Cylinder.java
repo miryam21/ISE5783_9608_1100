@@ -2,11 +2,11 @@
  * The Cylinder class represents a geometric cylinder in three-dimensional space.
  */
 package geometries;
-
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
 
-public class Cylinder {
+public class Cylinder extends Tube{
 
     /**
      * The height of the cylinder.
@@ -18,7 +18,8 @@ public class Cylinder {
      *
      * @param height the height of the cylinder
      */
-    public Cylinder(double height) {
+    public Cylinder(double height, Ray exisRay, double radius) {
+        super(exisRay,radius);
         this.height = height;
     }
 
@@ -37,6 +38,7 @@ public class Cylinder {
      * @param point the point on the surface of the cylinder
      * @return the normal vector of the cylinder surface at the specified point
      */
+    @Override
     public Vector getNormal(Point point){
         return null; // TODO: implement this method
     }
