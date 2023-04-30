@@ -64,11 +64,12 @@ public class Vector extends Point{ // A class representing a 3D vector, which in
                 this.xyz.d3*v.xyz.d1-this.xyz.d1*v.xyz.d3,
                 this.xyz.d1*v.xyz.d2-this.xyz.d2*v.xyz.d1);
     }
-    public double lengthSquared()
-    {
-       return (this.dotProduct(this));
+    public double lengthSquared() {
+        double dx = xyz.d1;
+        double dy = xyz.d2;
+        double dz = xyz.d3;
+        return dx*dx + dy*dy + dz*dz;
     }
-        public double length(Vector other){
-        return  Math.sqrt(this.lengthSquared());
-    }
+
+
 }

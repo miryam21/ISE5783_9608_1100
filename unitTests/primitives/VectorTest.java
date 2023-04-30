@@ -3,38 +3,45 @@ package primitives;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/** unit tests for vector class*/
 class VectorTest {
 
     @Test
-    void normalize() {
+    void testLength() {
+
     }
 
     @Test
-    void scale() {
+    void testNormalize() {
     }
 
     @Test
-    void dotProduct() {
+    void testScale() {
     }
 
     @Test
-    void add() {
+    void testDotProduct() {
     }
 
     @Test
-    void testToString() {
+    void testAdd() {
     }
 
     @Test
-    void crossProduct() {
+    void testCrossProduct() {
     }
 
     @Test
-    void lengthSquared() {
+    void testLengthSquared() {
+        // ============ Equivalence Partitions Tests ==============
+
+        assertEquals(9d,new Vector(2,2,1).lengthSquared(),0.00001,"ERROR - lengthSquared test in vector");
+
     }
 
+    //todo: ask if  subtract is needed here
     @Test
-    void length() {
+    void testSubtract(){
+
     }
 }
