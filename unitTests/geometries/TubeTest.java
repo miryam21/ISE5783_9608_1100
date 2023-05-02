@@ -11,7 +11,7 @@ class TubeTest {
 
 
     /**
-     * Test method for {@link Tube#getNormal(Point)}.
+     * This class contains unit tests for the tube class.
      */
     @Test
     void testGetNormal() {
@@ -22,11 +22,11 @@ class TubeTest {
         boolean firstNormal = new Vector(0,0,1).equals(normal);
         boolean secondNormal = new Vector(0,0,-1).equals(normal);
 
+        // TC01: ensure the normal is orthogonal to tube
+        assertEquals(0d,check,"ERROR - normal is not orthogonal to the tube");
 
-        assertEquals(0d,check,"normal is not orthogonal to the tube");
 
-
-        assertTrue(firstNormal||secondNormal,"wrong normal to tube");
+        assertTrue(firstNormal||secondNormal,"ERROR - wrong normal to tube");
 
         // =============== Boundary Values Tests ==================
         normal = tube.getNormal(new Point(0,0,2));
@@ -35,9 +35,9 @@ class TubeTest {
         secondNormal = new Vector(0,0,-1).equals(normal);
 
 
-        assertEquals(0d,check,"normal is not orthogonal to the tube");
+        assertEquals(0d,check,"ERROR - normal is not orthogonal to the tube");
 
 
-        assertTrue(firstNormal||secondNormal,"wrong normal to tube");
+        assertTrue(firstNormal||secondNormal,"ERROR - wrong normal to tube");
     }
 }

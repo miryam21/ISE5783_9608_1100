@@ -17,7 +17,9 @@ import primitives.Vector;
  * @author Dan */
 public class PolygonTests {
 
-   /** Test method for {@link geometries.Polygon#Polygon(primitives.Point...)}. */
+   /**
+    * This class contains unit tests for the Point class.
+    */
    @Test
    public void testConstructor() {
       // ============ Equivalence Partitions Tests ==============

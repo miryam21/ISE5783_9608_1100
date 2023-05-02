@@ -6,7 +6,9 @@ import primitives.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CylinderTest {
-
+    /**
+     * This class contains unit tests for the cylinder class.
+     */
     @Test
     void testGetNormal() {
         Cylinder cyl = new Cylinder(1.0, new Ray(new Point(0, 0, 1), new Vector(0, 1, 0)), 1d);

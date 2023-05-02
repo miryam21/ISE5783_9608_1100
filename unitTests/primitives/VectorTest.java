@@ -33,11 +33,7 @@ class VectorTest {
                 "crossProduct() for parallel vectors does not throw an exception");
     }
 
-    @Test
-    void testLength() {
-        // Equivalence Partitions Tests
-        assertEquals(v1.length(),Math.sqrt(14),"ERROR-length in vector");
-    }
+
 
     @Test
     public void testNormalize() {
@@ -46,8 +42,9 @@ class VectorTest {
         Vector n = v.normalize();
 
         // Equivalence Partitions Tests
-        // TC01: Simple test
+        // TC01: normalize vector test
         assertEquals(1d, n.lengthSquared(), 0.00001, "wrong normalized vector length");
+        // TC02: direction normalized vector test
         assertThrows(IllegalArgumentException.class,
                 () -> v.crossProduct(n) ,
                 "normalized vector is not in the same direction");
@@ -56,33 +53,44 @@ class VectorTest {
 
     @Test
     void testScale() {
-        // Equivalence Partitions Tests
+        // ===============Equivalence Partitions Tests=====================
+        // TC03: multiply by scalar test
         assertEquals(new Vector(2,4,6),v1.scale(2d),"ERROR- scale in vector(scalar mult)");
 
         // Boundary Values Tests
+        // TC04: multiply by 0 test
         assertThrows(IllegalArgumentException.class,()-> v1.scale(0d),"ERROR- scale multi by 0 is vector zero");
     }
-
+    @Test
+    void testLength() {
+        // ==================Equivalence Partitions Tests================
+        // TC5: ensure the length of vector
+        assertEquals(v1.length(),Math.sqrt(14),"ERROR-length in vector");
+    }
     @Test
     void testDotProduct() {
-        // Equivalence Partitions Tests
+        // ================Equivalence Partitions Tests========================
+        // TC06:  dot product test
         assertEquals(-14d,v1.dotProduct(v3),"ERROR - dot product in vector");
+        // TC07: dot product returns 0 test
         assertEquals(0d,v1.dotProduct(v2),"ERROR - dot product doesn't return 0");
     }
 
     @Test
     void testAdd() {
-        // Equivalence Partitions Tests
+        // ================Equivalence Partitions Tests============================
+        //TC08: add action on vector test
         assertEquals(new Vector(1,5,1), v1.add(v2),"ERROR- add in vector does not work");
 
-        // Boundary Values Tests
+        // =================Boundary Values Tests=====================
+        //TC09: add action on vector returns vector zero test
         assertThrows(IllegalArgumentException.class,()->v1.add(v3),"ERROR- vector zero in add function");
     }
 
     @Test
     void testLengthSquared() {
         // ============ Equivalence Partitions Tests ==============
-        // Test that the length squared of a vector is calculated correctly
+        // //TC010: add action on vector testTest that the length squared of a vector is calculated correctly
         assertEquals(9d,new Vector(2,2,1).lengthSquared(),0.00001,"ERROR - lengthSquared test in vector");
     }
 
@@ -90,11 +98,11 @@ class VectorTest {
     @Test
     void testSubtract(){
         // ============ Equivalence Partitions Tests ==============
-        // Test that subtracting two vectors returns the correct vector
+        // //TC011: add action on vector testTest that subtracting two vectors returns the correct vector
         assertEquals(new Vector(1,-1,5), v1.subtract(v2),"ERROR- add in vector dose not work");
 
         // ============ boundary values Tests ===============
-        // Test that subtracting a vector from itself throws an IllegalArgumentException
+        // //TC012: add action on vector testTest that subtracting a vector from itself throws an IllegalArgumentException
         assertThrows(IllegalArgumentException.class,()->v1.subtract(v1),"ERROR- vector zero in add function");
     }
 }

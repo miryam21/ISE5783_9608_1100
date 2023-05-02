@@ -18,12 +18,12 @@ class PointTest {
     void testDistanceSquared() {
         // ============ Equivalence Partitions Tests ==============
 
-        // Test that the distance squared between two points is calculated correctly
+        //  TC01:Test that the distance squared between two points is calculated correctly
         assertEquals(3, p2.distanceSquared(p3), "ERROR - DistanceSquared test in Point");
 
         // ============ Boundary Values Tests ===============
 
-        // Test that the distance between a point and itself is zero
+        //  TC02:Test that the distance between a point and itself is zero
         assertEquals(0d, p2.distance(p2), 0.0001, "ERROR - Distance from point to itself must be zero");
     }
 
@@ -31,12 +31,12 @@ class PointTest {
     void testDistance() {
         // ============ Equivalence Partitions Tests ==============
 
-        // Test that the distance between two points is calculated correctly
+        // TC03: Test that the distance between two points is calculated correctly
         assertEquals(3, p2.distance(new Point(5,4,2)), "ERROR - Distance test in Point");
 
         // ============ Boundary Values Tests ===============
 
-        // Test that the distance between a point and itself is zero
+        //  TC04:Test that the distance between a point and itself is zero
         assertEquals(0d, p2.distance(p2), 0.0001, "ERROR - Distance from point to itself must be zero");
     }
 
@@ -44,7 +44,7 @@ class PointTest {
     void testAdd() {
         // ============ Equivalence Partitions Tests ==============
 
-        // Test that adding a vector to a point produces the expected result
+        // TC05: Test that adding a vector to a point produces the expected result
         assertEquals(p3, p2.add(new Vector(1,1,1)), "ERROR - Add test in Point");
 
         // ============ No Boundary Tests ==============
@@ -54,12 +54,12 @@ class PointTest {
     void testSubtract() {
         // ============ Equivalence Partitions Tests ==============
 
-        // Test that subtracting one point from another produces the expected result
+        //  TC06: Test that subtracting one point from another produces the expected result
         assertEquals(new Vector(1,1,1), p3.subtract(p2), "ERROR - Subtract test in Point");
 
         // ============ Boundary Values Tests ===============
 
-        // Test that subtracting a point from itself throws an IllegalArgumentException
+        // TC07: Test that subtracting a point from itself throws an IllegalArgumentException
         assertThrows(IllegalArgumentException.class, () -> p1.subtract(p1), "ERROR - Vector zero must throw exception");
     }
 }
