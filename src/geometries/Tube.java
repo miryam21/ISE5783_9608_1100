@@ -3,6 +3,8 @@ package geometries;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
+import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
 
 /**
  * The Tube class represents an infinite cylinder (a tube) in Cartesian coordinate system.

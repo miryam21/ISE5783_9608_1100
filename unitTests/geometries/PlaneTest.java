@@ -10,12 +10,13 @@ class PlaneTest {
     Point p1 = new Point(1, 0, 0);
     Point p2 = new Point(0, 2, 1);
     Point p3 = new Point(2, 0, 1);
+
     @Test
     void testConstructor() {
         // =============== Boundary Values Tests ==================
+        // Define boundary test points
         Point p1 = new Point(1, 2, 3);
         Point p2 = new Point(4, 5, 6);
-
 
         //TC11: Test that constructor doesn't accept two points equals
         assertThrows(IllegalArgumentException.class, () -> new Plane(p1, p1, p2),
@@ -27,12 +28,18 @@ class PlaneTest {
         assertThrows(IllegalArgumentException.class, () -> new Plane(p1, p4, p5),
                 "the constructor must throw exception when three points are co-lined");
     }
+
     @Test
     void testGetNormal() {
+        // =============== Equivalence Partitions Tests ==================
+        // Create a plane from three points
         Plane plane = new Plane(p1, p2, p3);
+        // Get the normal vector
         Vector vec = plane.getNormal();
+
         // ensure |result| = 1
         assertEquals(1, vec.length(), 0.00000001, "ERROR - Plane's normal is not a unit vector");
+
         // ensure the result is orthogonal to the all the vectors of the plane
         Vector v1 = p1.subtract(p2);
         Vector v2 = p1.subtract(p3);
