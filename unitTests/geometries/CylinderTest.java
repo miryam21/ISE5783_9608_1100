@@ -37,4 +37,5 @@ class CylinderTest {
         assertEquals(new Vector(0, 1, 0), cyl.getNormal(new Point(0, 1, 2)), "Bad normal to edge with upper base");
 
     }
+
 }

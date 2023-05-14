@@ -1,9 +1,17 @@
 package geometries;
 
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static primitives.Util.alignZero;
+import static primitives.Util.isZero;
+
 /*
-try COMI
+
  */
 public class Plane implements Geometry {
     final protected Point  point;
@@ -58,5 +66,35 @@ public class Plane implements Geometry {
     @Override
     public Vector getNormal(Point point) {
         return getNormal();
+    }
+
+
+    @Override
+    public List<Point> findIntersections(Ray ray) {
+
+        //if the ray start in p0 - there isn't intersection
+        if(point.equals(ray.getP0())) return null;
+
+        Vector qMinusP0 = point.subtract(ray.getP0());
+        double nQMinusP0 = normal.dotProduct(qMinusP0);
+        double nv = normal.dotProduct(ray.getDir());
+
+        //if v orthogonal to the normal- v parallel to the plan
+        if (isZero(nv)){return null;}
+
+        double t = alignZero(nQMinusP0/nv);
+
+        //there is intersection point
+        if(t > 0d){
+            List<Point> list = new ArrayList<Point>();
+            list.add(ray.getPoint(t));
+            return list;
+        }
+
+        //if t <= 0 - the ray start after the plane
+        return null;
+    }
+    public Point getPoint() {
+        return point;
     }
 }

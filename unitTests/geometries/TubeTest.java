@@ -36,8 +36,7 @@ class TubeTest {
 
 
         assertEquals(0d,check,"ERROR - normal is not orthogonal to the tube");
-
-
         assertTrue(firstNormal||secondNormal,"ERROR - wrong normal to tube");
     }
+
 }

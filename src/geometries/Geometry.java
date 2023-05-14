@@ -10,7 +10,7 @@ import primitives.Vector;
 
  at a given point.
  */
-public interface Geometry {
+public interface Geometry extends Intersectable {
     Vector getNormal(Point point);
 }
 
