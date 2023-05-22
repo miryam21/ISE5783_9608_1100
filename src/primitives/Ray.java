@@ -1,4 +1,6 @@
 package primitives;
+import java.util.*;
+import java.security.PublicKey;
 
 /**
  * The Ray class represents a ray in 3D space, with a starting point and a direction.
@@ -61,4 +63,40 @@ public class Ray {
     public String toString() {
         return "point of ray: " + p0 + ", vector of ray: " + dir;
     }
+
+    /**
+     * Finds the closest point to the start of ray from a list of points.
+     *
+     * @param lst The list of points to search for the closest point.
+     * @return The closest point to the reference point, or null if the list is null or empty.
+     */
+    public Point findClosestPoint(List<Point> lst) {
+        if (lst == null || lst.size() == 0) {
+            // Return null if the list is null or empty
+            return null;
+        }
+
+        // Set the first point as the initial closest point
+        Point closestPoint = lst.get(0);
+
+        // Calculate the initial distance between the closest point and the reference point (p0)
+        double distance = closestPoint.distance(p0);
+
+        // Iterate over the remaining points in the list
+        for (Point point : lst) {
+            // Calculate the distance between the current point and the reference point
+            double currentDistance = point.distance(p0);
+
+            // Check if the current point is closer to the reference point than the closest point
+            if (currentDistance < distance) {
+                // Update the closest point and the distance
+                closestPoint = point;
+                distance = currentDistance;
+            }
+        }
+
+        // Return the closest point
+        return closestPoint;
+    }
+
 }
