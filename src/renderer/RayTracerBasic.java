@@ -6,9 +6,10 @@ import primitives.Ray;
 import scene.Scene;
 
 import java.util.List;
-
+/**
+ * abstract class RayTracerBasic
+ */
 public class RayTracerBasic extends RayTracerBase{
-
     /**
      * Constructs a RayTracerBasic object with the specified scene.
      *
@@ -27,8 +28,7 @@ public class RayTracerBasic extends RayTracerBase{
     @Override
     public Color traceRay(Ray ray) {
         List<Point> pointList = this.scene.geometries.findIntersections(ray);
-        if(pointList == null)
-        {
+        if(pointList == null) {
             return scene.background;
         }
         Point closestPoint = ray.findClosestPoint(pointList);

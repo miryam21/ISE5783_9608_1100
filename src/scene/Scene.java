@@ -19,7 +19,6 @@ public class Scene {
     public Scene(String name) {
         this.name = name;
     }
-
     /**
      * Sets the background color of the scene.
      *

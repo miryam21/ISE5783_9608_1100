@@ -9,7 +9,9 @@ import java.security.PrivateKey;
 import java.util.MissingResourceException;
 
 import static primitives.Util.isZero;
-
+/**
+ * camera class
+ */
 public class Camera {
     private Point p0;
     private Vector vRight;
@@ -83,7 +85,6 @@ public class Camera {
     public double getHeight() {
         return height;
     }
-
     /**
      * Returns the width of the view plane.
      *
@@ -166,11 +167,7 @@ public class Camera {
         return this;
     }
     private Color castRay(int j,int i){
-        Ray ray = constructRay(
-                this.imageWriter.getNx(),
-                this.imageWriter.getNy(),
-                j,
-                i);
+        Ray ray = constructRay(this.imageWriter.getNx(), this.imageWriter.getNy(), j, i);
         return this.rayTracerBase.traceRay(ray);
 }
     /**
