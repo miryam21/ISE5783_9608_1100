@@ -7,6 +7,7 @@ import java.util.Objects;
  * It is defined by its x, y, and z coordinates.
  */
 public class Point {
+    public static final Point ZERO = new Point(0,0,0);
     final Double3 xyz; // The x, y, and z coordinates of the point
 
     /**

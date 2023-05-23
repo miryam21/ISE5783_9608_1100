@@ -1,10 +1,12 @@
 package renderer;
 
+import primitives.Color;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
 import java.security.PrivateKey;
+import java.util.MissingResourceException;
 
 import static primitives.Util.isZero;
 
@@ -16,6 +18,8 @@ public class Camera {
     private double height;
     private double width;
     private double distance;
+    private ImageWriter imageWriter;
+    protected RayTracerBase rayTracerBase;
 
     public Camera(Point p0,Vector vTo, Vector vUp) {
         if(vUp.dotProduct(vTo)!=0)
@@ -84,5 +88,56 @@ public class Camera {
         Vector Vij = Pij.subtract(p0);
         return new Ray(p0, Vij);
 
+    }
+
+    public Camera setImageWriter(ImageWriter imageWriter) {
+        this.imageWriter = imageWriter;
+        return this;
+    }
+    public Camera setRayTracer(RayTracerBase rayTracer) {
+        this.rayTracerBase = rayTracer;
+        return this;
+    }
+    public void renderImage() {
+        if( width == 0 )
+        {  throw new MissingResourceException("ERROR- there are values that not Initialized","Camera" ,  "width");}
+        if( height == 0)
+        {   throw new MissingResourceException("ERROR- there are values that not Initialized","Camera" ,"height");}
+        if(distance == 0)
+        {     throw new MissingResourceException("ERROR- there are values that not Initialized","Camera" , "distance");}
+        if(imageWriter == null)
+        {   throw new MissingResourceException("ERROR- there are values that not Initialized","Camera" , "imageWriter");}
+        if(rayTracerBase ==null) {
+            throw new MissingResourceException("ERROR- there are values that not Initialized", "Camera", "rayTracerBase");
+        }
+    }
+        public void printGrid(int interval, Color color){
+            if(imageWriter == null)
+            {   throw new MissingResourceException("ERROR - there are values that not Initialized","Camera" , "imageWriter");}
+
+            // loop for coloring the rows
+            for (int i =0; i<imageWriter.getNy(); i+=interval)
+            {
+                for (int j =0; j<imageWriter.getNx(); j++)
+                {
+                    imageWriter.writePixel(j, i, color);
+                }
+            }
+            //loop for coloring the columns
+            for (int j =0; j<imageWriter.getNx(); j+=interval)
+            {
+                for (int i =0; i<imageWriter.getNy(); i++)
+                {
+                    imageWriter.writePixel(j, i, color);
+                }
+            }
+    }
+    public void writeToImage()
+    {
+        //check if null
+        if(imageWriter == null)
+        {   throw new MissingResourceException("ERROR: one or more values are not Initialized","Camera" , "imageWriter");}
+
+        imageWriter.writeToImage();
     }
 }
