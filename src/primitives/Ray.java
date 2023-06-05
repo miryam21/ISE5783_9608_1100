@@ -70,7 +70,7 @@ public class Ray {
      * @param lst The list of points to search for the closest point.
      * @return The closest point to the reference point, or null if the list is null or empty.
      */
-    public Point findClosestPoint(List<Point> lst) {
+    /*public Point findClosestPoint(List<Point> lst) {
         if (lst == null || lst.size() == 0) {
             // Return null if the list is null or empty
             return null;
@@ -97,6 +97,11 @@ public class Ray {
 
         // Return the closest point
         return closestPoint;
+    }
+    */
+    public Point findClosestPoint(List<Point> points) {
+        return points == null || points.isEmpty() ? null
+                : findClosestGeoPoint(points.stream().map(p -> new GeoPoint(null, p)).toList()).point;
     }
     public GeoPoint findClosestGeoPoint(List<GeoPoint> GeoPointList)
     {
