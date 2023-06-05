@@ -219,7 +219,7 @@ public class Camera {
      */
     public void printGrid(int interval, Color color) {
         if (imageWriter == null) {
-            throw new MissingResourceException("ERROR: Some values are not initialized", "Camera", "imageWriter");
+            throw new MissingResourceException("ERROR - Some values are not initialized", "Camera", "imageWriter");
         }
 
         // Loop for coloring the rows
@@ -244,7 +244,7 @@ public class Camera {
      */
     public void writeToImage() {
         if (imageWriter == null) {
-            throw new MissingResourceException("ERROR: Some values are not initialized", "Camera", "imageWriter");
+            throw new MissingResourceException("ERROR - Some values are not initialized", "Camera", "imageWriter");
         }
 
         imageWriter.writeToImage();

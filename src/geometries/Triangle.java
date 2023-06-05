@@ -4,6 +4,7 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static primitives.Util.alignZero;
@@ -18,10 +19,11 @@ public class Triangle extends Polygon {
         super(x, y, z); // Calls the Polygon constructor with the three vertices
     }
     @Override
-    public List<Point> findIntersections(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
 
         //check if the ray intersection the plan
         List<Point> pointList = plane.findIntersections(ray);
+        List<GeoPoint> trianglePoints = new ArrayList<GeoPoint>();
 
         if(pointList == null) { return null; }
 
@@ -37,8 +39,14 @@ public class Triangle extends Polygon {
         double vn2 = alignZero(ray.getDir().dotProduct(n2));
         double vn3 = alignZero(ray.getDir().dotProduct(n3));
 
-        if((vn1 > 0 && vn2 > 0 && vn3 > 0) || (vn1 < 0 && vn2 < 0 && vn3 < 0))
-            return pointList;
+        if((vn1 > 0 && vn2 > 0 && vn3 > 0) || (vn1 < 0 && vn2 < 0 && vn3 < 0)){
+
+        for (Point point: pointList)
+        {
+            trianglePoints .add(new GeoPoint(this , point));
+        }
+        return trianglePoints;}
+
         return null;
 
     }

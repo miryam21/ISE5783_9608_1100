@@ -46,12 +46,11 @@ public class Sphere extends RadialGeometry {
 
 
     @Override
-    public List<Point> findIntersections(Ray ray) {
+    protected List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         double th;
         double tm;
         double t1 ;
         double t2;
-
 
         //o==p
         if(center.equals(ray.getP0())){
@@ -76,13 +75,12 @@ public class Sphere extends RadialGeometry {
 
         if (t1 <= 0 && t2 <= 0){return null;}
 
-        List<Point> list=new ArrayList<Point>();
+        List<GeoPoint> list=new ArrayList<GeoPoint>();
+        if (t1 > 0) {
+            list.add(new GeoPoint(this , ray.getPoint(t1)));}
+        if (t2 > 0) {
+            list.add(new GeoPoint(this , ray.getPoint(t2)));}
 
-        if (t1 > 0)
-            list.add(ray.getPoint(t1));
-
-        if (t2 > 0)
-            list.add(ray.getPoint(t2));
         return list;
     }
 
