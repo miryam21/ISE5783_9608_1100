@@ -1,7 +1,7 @@
 package primitives;
 import java.util.*;
 import java.security.PublicKey;
-
+import geometries.Intersectable.GeoPoint;
 /**
  * The Ray class represents a ray in 3D space, with a starting point and a direction.
  */
@@ -97,6 +97,25 @@ public class Ray {
 
         // Return the closest point
         return closestPoint;
+    }
+    public GeoPoint findClosestGeoPoint(List<GeoPoint> GeoPointList)
+    {
+        if(GeoPointList == null)
+            return null;
+        GeoPoint closesPoint = GeoPointList.get(0);
+        double minDistanceSquared = closesPoint.point.distanceSquared(this.p0);
+        double distanceSquared;
+        for (GeoPoint geoPoint: GeoPointList)
+        {
+            distanceSquared = geoPoint.point.distanceSquared(this.p0);
+            if(distanceSquared < minDistanceSquared)
+            {
+                minDistanceSquared = distanceSquared;
+                closesPoint = geoPoint;
+            }
+
+        }
+        return closesPoint;
     }
 
 }
