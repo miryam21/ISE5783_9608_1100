@@ -8,7 +8,7 @@ import geometries.Intersectable.GeoPoint;
 public class Ray {
     final protected Point p0; // the starting point of the ray
     final protected Vector dir; // the direction of the ray, as a normalized vector
-
+    private static final double DELTA = 0.1;// DELTA to move the point away from original point
     /**
      * Constructs a new Ray object with the given starting point and direction.
      * The direction vector is normalized so that it has a length of 1.
@@ -20,7 +20,11 @@ public class Ray {
         this.p0 = p0;
         this.dir = dir.normalize();
     }
-
+    public Ray(Point p0, Vector dir, Vector n) {
+     double delta= dir.dotProduct(n) >= 0 ? DELTA : -DELTA;
+        this.p0= p0.add(n.scale(delta));
+        this.dir= dir;
+    }
     /**
      * Returns the starting point of the ray.
      *

@@ -9,11 +9,17 @@ import geometries.Intersectable.GeoPoint;
 import java.util.List;
 import static primitives.Util.*;
 
-
 /**
- * abstract class RayTracerBasic
+ * The RayTracerBasic class represents a basic ray tracer implementation.
+ * It traces rays and calculates the color of intersected objects in a scene.
  */
-public class    RayTracerBasic extends RayTracerBase{
+public class RayTracerBasic extends RayTracerBase {
+
+    private static final double DELTA = 0.1;
+    private static final int MAX_CALC_COLOR_LEVEL = 10;
+    private static final double MIN_CALC_COLOR_K = 0.001;
+    private static final Double3 INITIAL_K = Double3.ONE;
+
     /**
      * Constructs a RayTracerBasic object with the specified scene.
      *
@@ -31,40 +37,109 @@ public class    RayTracerBasic extends RayTracerBase{
      */
     @Override
     public Color traceRay(Ray ray) {
-        int i;
         List<GeoPoint> intersections = scene.geometries.findGeoIntersections(ray);
         return intersections == null ? scene.background : calcColor(ray.findClosestGeoPoint(intersections), ray);
     }
+
+    /**
+     * Calculates the color of the intersected object at the given intersection point.
+     *
+     * @param geoPoint The intersection point on the geometry
+     * @param ray      The ray that intersected the object
+     * @return The color of the intersected object
+     */
     private Color calcColor(GeoPoint geoPoint, Ray ray) {
         return scene.ambientLight.getIntensity().add(geoPoint.geometry.getEmission())
                 .add(calcLocalEffects(geoPoint, ray));
     }
-    private Color calcLocalEffects(GeoPoint geoPoint, Ray ray){
-        Vector v= ray.getDir();
-        Vector n= geoPoint.geometry.getNormal(geoPoint.point);
-        double nv= alignZero(n.dotProduct(v));
-        Color color= Color.BLACK;
-        if(nv==0)
+
+    /**
+     * Calculates the local effects (diffuse and specular) of light on the intersected object.
+     *
+     * @param geoPoint The intersection point on the geometry
+     * @param ray      The ray that intersected the object
+     * @return The color of the local effects
+     */
+    private Color calcLocalEffects(GeoPoint geoPoint, Ray ray) {
+        Vector v = ray.getDir();
+        Vector n = geoPoint.geometry.getNormal(geoPoint.point);
+        double nv = alignZero(n.dotProduct(v));
+        Color color = Color.BLACK;
+
+        if (nv == 0)
             return Color.BLACK;
-        Material material= geoPoint.geometry.getMaterial();
-        for(LightSource lightSource: scene.lights){
+
+        Material material = geoPoint.geometry.getMaterial();
+
+        for (LightSource lightSource : scene.lights) {
             Vector lightVector = lightSource.getL(geoPoint.point);
             double nl = alignZero(n.dotProduct(lightVector));
+
             if (nl * nv > 0) {
-                Color lightIntensity = lightSource.getIntensity(geoPoint.point);
-                color = color.add(lightIntensity.scale(calcDiffusive(material, nl)), lightIntensity.scale(calcSpecular(material, n, lightVector, nl, v)));
+                if (unshaded(geoPoint, lightSource, lightVector, n, nl)) {
+                    Color lightIntensity = lightSource.getIntensity(geoPoint.point);
+                    color = color.add(lightIntensity.scale(calcDiffuse(material, nl)),
+                            lightIntensity.scale(calcSpecular(material, n, lightVector, nl, v)));
+                }
             }
         }
+
         return color;
     }
-    private Double3 calcDiffusive(Material material, double nl) {
+
+    /**
+     * Calculates the diffuse component of light reflection on the surface of the object.
+     *
+     * @param material The material of the object
+     * @param nl       The dot product between the normal and light vectors
+     * @return The diffuse component
+     */
+    private Double3 calcDiffuse(Material material, double nl) {
         return material.kD.scale(Math.abs(nl));
     }
-    private Double3 calcSpecular(Material material, Vector normal, Vector lightVector, double nl, Vector vector) {
-        Vector reflectedVector = lightVector.subtract(normal.scale(2 * nl));
-        double max = Math.max(0, vector.scale(-1).dotProduct(reflectedVector));
-        return material.kS.scale(Math.pow(max, material.nShininess));
 
+    /**
+     * Calculates the specular component of light reflection on the surface of the object.
+     *
+     * @param material     The material of the object
+     * @param normal       The surface normal vector
+     * @param lightVector  The vector from the intersection point to the light source
+     * @param nl           The dot product between the normal and light vectors
+     * @param viewVector   The vector from the intersection point to the viewer
+     * @return The specular component
+     */
+    private Double3 calcSpecular(Material material, Vector normal, Vector lightVector, double nl, Vector viewVector) {
+        Vector reflectedVector = lightVector.subtract(normal.scale(2 * nl));
+        double max = Math.max(0, viewVector.scale(-1).dotProduct(reflectedVector));
+        return material.kS.scale(Math.pow(max, material.nShininess));
     }
 
+    private boolean unshaded(GeoPoint gp,LightSource light, Vector l, Vector n,double nl) {
+        Vector lightDirection = l.scale(-1);
+
+        // Create a ray from the point on the object towards the light source
+        Ray lightRay = new Ray(gp.point, lightDirection, n);
+
+        // Calculate the distance between the point on the object and the light source
+        double distance = light.getDistance(gp.point);
+
+        // Find intersections between the light ray and objects in the scene within the given distance
+        List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay, distance);
+
+        // If no intersections are found, the point is unshaded
+        if (intersections == null)
+            return true;
+
+        // Check if any of the intersections have a transparency coefficient below a minimum threshold
+        for (GeoPoint geoPoint : intersections) {
+            // If the transparency coefficient of an intersected object falls below the minimum threshold, the point is shaded
+            if (geoPoint.geometry.getMaterial().kT.lowerThan(MIN_CALC_COLOR_K)) {
+                return false;
+            }
+        }
+
+        // If no intersections have a transparency coefficient below the minimum threshold, the point is unshaded
+    return true;
+
+    }
 }

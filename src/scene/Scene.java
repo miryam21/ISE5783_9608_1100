@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Represents a scene in a 3D environment.
+ * Represents a scene in a 3D environment
  */
 public class Scene {
     public String name;
