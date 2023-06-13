@@ -20,26 +20,7 @@ public class Material {
         this.kD = kD;
         return this;
     }
-    /**
-     * Sets the diffuse reflection coefficient of the material.
-     *
-     * @param KT The diffuse reflection coefficient as a Double3 (RGB values).
-     * @return The Material object with the updated diffuse reflection coefficient.
-     */
-    public Material setKT(Double3 kD) {
-        this.kT = kT;
-        return this;
-    }
-    /**
-     * Sets the diffuse reflection coefficient of the material.
-     *
-     * @param kR The diffuse reflection coefficient as a Double3 (RGB values).
-     * @return The Material object with the updated diffuse reflection coefficient.
-     */
-    public Material setKR(Double3 kD) {
-        this.kR = kR;
-        return this;
-    }
+
     /**
      * Sets the diffuse reflection coefficient of the material.
      *
@@ -84,4 +65,24 @@ public class Material {
         return this;
     }
 
+    public Material setKT(Double3 kT) {
+        this.kT = kT;
+        return this;
+    }
+
+    public Material setKT(double doubleTokT) {
+        this.kT = new Double3(doubleTokT);
+        return this;
+    }
+
+    public Material setKR(Double3 kR) {
+        this.kR = kR;
+        return this;
+
+    }
+
+    public Material setKR(double doubleTokR) {
+        this.kR = new Double3(doubleTokR);
+        return this;
+    }
 }

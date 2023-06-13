@@ -117,28 +117,23 @@ public class RayTracerBasic extends RayTracerBase {
     private boolean unshaded(GeoPoint gp,LightSource light, Vector l, Vector n,double nl) {
         Vector lightDirection = l.scale(-1);
 
-        // Create a ray from the point on the object towards the light source
         Ray lightRay = new Ray(gp.point, lightDirection, n);
 
-        // Calculate the distance between the point on the object and the light source
         double distance = light.getDistance(gp.point);
 
-        // Find intersections between the light ray and objects in the scene within the given distance
         List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay, distance);
 
-        // If no intersections are found, the point is unshaded
         if (intersections == null)
             return true;
 
-        // Check if any of the intersections have a transparency coefficient below a minimum threshold
+
         for (GeoPoint geoPoint : intersections) {
-            // If the transparency coefficient of an intersected object falls below the minimum threshold, the point is shaded
+
             if (geoPoint.geometry.getMaterial().kT.lowerThan(MIN_CALC_COLOR_K)) {
                 return false;
             }
         }
 
-        // If no intersections have a transparency coefficient below the minimum threshold, the point is unshaded
     return true;
 
     }
