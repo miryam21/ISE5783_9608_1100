@@ -80,5 +80,8 @@ public abstract class Intersectable {
     public final List<GeoPoint> findGeoIntersections(Ray ray) {
         return findGeoIntersections(ray, Double.POSITIVE_INFINITY);}
     protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance);
-
+    public GeoPoint findClosestIntersection(Ray ray) {
+        List<GeoPoint> intersectionPoints = findGeoIntersections(ray);
+        return ray.findClosestGeoPoint(intersectionPoints);
+    }
 }
