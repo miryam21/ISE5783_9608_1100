@@ -137,22 +137,5 @@ public class RayTracerBasic extends RayTracerBase {
     return true;
 
     }
-
-    private Double3 transparency(GeoPoint geopoint,  Vector n, LightSource lightSource){
-        Vector lightDirection = lightSource.getL(geopoint.point).scale(-1);
-        Ray lightRay = new Ray(geopoint.point, lightDirection, n);
-
-        List<GeoPoint> intersections = scene.geometries.
-                findGeoIntersections(lightRay,
-                        lightSource.getDistance(geopoint.point));
-        if(intersections == null) return Double3.ONE;
-
-        Double3 transparent = Double3.ONE;
-        for (GeoPoint gp : intersections) {
-            transparent = transparent.product(gp.geometry.getMaterial().kT);
-            if(transparent.subtract(new Double3(MIN_CALC_COLOR_K)).lowerThan(0))
-                return Double3.ZERO;
-        }
-        return transparent;
-    }
+    // bla
 }
