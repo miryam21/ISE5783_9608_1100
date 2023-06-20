@@ -47,7 +47,7 @@ public class Cylinder extends Tube{
     @Override
     public Vector getNormal(Point point) {
         Point p0 = axisRay.getP0();
-        Vector v = axisRay.getDir();
+        Vector v = axisRay.getDir();//  vector direction of ray
 
         if (point.equals(p0))
             return v;

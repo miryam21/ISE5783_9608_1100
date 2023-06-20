@@ -1,3 +1,7 @@
+/**
+ * The Plane class represents a plane geometry in three-dimensional space.
+ * It extends the Geometry class and implements methods for finding intersections with rays.
+ */
 package geometries;
 
 import primitives.Point;
@@ -10,11 +14,8 @@ import java.util.List;
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
-/*
-
- */
 public class Plane extends Geometry {
-    final protected Point  point;
+    final protected Point point;
     final protected Vector normal;
 
     /**
@@ -26,7 +27,7 @@ public class Plane extends Geometry {
      * @param y The second point on the plane.
      * @param z The third point on the plane.
      */
-    public Plane(Point x, Point y, Point z){
+    public Plane(Point x, Point y, Point z) {
         this.point = x;
 
         Vector u = x.subtract(y);
@@ -39,7 +40,7 @@ public class Plane extends Geometry {
     /**
      * Constructs a Plane object from a point and a normal vector.
      *
-     * @param point A point on the plane.
+     * @param point  A point on the plane.
      * @param normal The normal vector to the plane.
      */
     public Plane(Point point, Vector normal) {
@@ -67,43 +68,50 @@ public class Plane extends Geometry {
     public Vector getNormal(Point point) {
         return getNormal();
     }
-
-
+    /**
+     * Returns the point on this plane.
+     *
+     * @return The point on this plane.
+     */
+    public Point getPoint() {
+        return point;
+    }
+    /**
+     * Finds the intersection points between a given ray and this plane.
+     *
+     * @param ray         The ray to intersect with this plane.
+     * @param maxDistance The maximum distance for valid intersections.
+     * @return A list of GeoPoint objects representing the intersection points, or null if no intersections found.
+     */
     @Override
     public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
 
-        //if the ray start in p0 - there isn't intersection
-        if(point.equals(ray.getP0())) return null;
+        // If the ray starts in p0, there is no intersection
+        if (point.equals(ray.getP0())) return null;
 
         Vector qMinusP0 = point.subtract(ray.getP0());
         double nQMinusP0 = normal.dotProduct(qMinusP0);
         double nv = normal.dotProduct(ray.getDir());
 
-        //if v orthogonal to the normal- v parallel to the plan
-        if (isZero(nv)){
-            return null;}
+        // If v is orthogonal to the normal, v is parallel to the plane
+        if (isZero(nv)) {
+            return null;
+        }
 
-        double t = alignZero(nQMinusP0/nv);
+        double t = alignZero(nQMinusP0 / nv);
 
-        //there is intersection point
-        if(t > 0d){
-            if(alignZero(t - maxDistance) <= 0) {
-                List<GeoPoint> list = new ArrayList<GeoPoint>();
+        // If there is an intersection point
+        if (t > 0d) {
+            if (alignZero(t - maxDistance) <= 0) {
+                List<GeoPoint> list = new ArrayList<>();
                 list.add(new GeoPoint(this, ray.getPoint(t)));
                 return list;
             }
         }
 
-        //if t <= 0 - the ray start after the plane
+        // If t <= 0, the ray starts after the plane
         return null;
-
-
-
-
-
-
     }
-    public Point getPoint() {
-        return point;
-    }
+
+
 }
