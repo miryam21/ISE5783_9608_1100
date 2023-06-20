@@ -3,8 +3,6 @@ package lighting;
 import primitives.Color;
 import primitives.Double3;
 
-import java.security.PublicKey;
-
 /**
  * Represents ambient light in a scene.
  */
@@ -18,10 +16,11 @@ public class AmbientLight extends Light {
     /**
      * Default constructor (use super constructor)
      */
-    public AmbientLight(Color iA  , Double3 kA) {
+    public AmbientLight(Color iA, Double3 kA) {
         super(iA.scale(kA));
     }
-    public AmbientLight(Color iA  , double kA) {
+
+    public AmbientLight(Color iA, double kA) {
         super(iA.scale(kA));
     }
 

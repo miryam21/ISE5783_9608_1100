@@ -2,17 +2,15 @@
  * The Cylinder class represents a geometric cylinder in three-dimensional space.
  */
 package geometries;
+
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
-import primitives.Util;
 
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
-import java.util.List;
-
-public class Cylinder extends Tube{
+public class Cylinder extends Tube {
 
     /**
      * The height of the cylinder.
@@ -25,7 +23,7 @@ public class Cylinder extends Tube{
      * @param height the height of the cylinder
      */
     public Cylinder(double height, Ray exisRay, double radius) {
-        super(exisRay,radius);
+        super(exisRay, radius);
         this.height = height;
     }
 

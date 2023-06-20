@@ -18,6 +18,7 @@ public class Sphere extends RadialGeometry {
 
     /**
      * Constructs a sphere with the specified radius and center point.
+     *
      * @param radius The radius of the sphere.
      * @param center The center point of the sphere.
      */
@@ -28,6 +29,7 @@ public class Sphere extends RadialGeometry {
 
     /**
      * Returns the center point of the sphere.
+     *
      * @return The center point of the sphere.
      */
     public Point getCenter() {
@@ -36,12 +38,13 @@ public class Sphere extends RadialGeometry {
 
     /**
      * Returns the normal vector to the sphere at the specified point.
+     *
      * @param point The point on the sphere to get the normal vector at.
      * @return The normal vector to the sphere at the specified point.
      */
     @Override
     public Vector getNormal(Point point) {
-       return center.subtract(point).normalize();
+        return center.subtract(point).normalize();
     }
 
 
@@ -51,12 +54,10 @@ public class Sphere extends RadialGeometry {
         double tm;
 
         //o==p
-        if(center.equals(ray.getP0())){
+        if (center.equals(ray.getP0())) {
             th = radius;
             tm = 0;
-        }
-
-        else {
+        } else {
             Vector u = center.subtract(ray.getP0());
             tm = ray.getDir().dotProduct(u);
             double dSquared = u.lengthSquared() - tm * tm;
@@ -73,12 +74,12 @@ public class Sphere extends RadialGeometry {
         double t2 = alignZero(tm - th);
 
 
-
-        if (t1 <= 0 && t2 <= 0){return null;}
+        if (t1 <= 0 && t2 <= 0) {
+            return null;
+        }
 
         //check if there is point that t<0 and the point more closes from maxDistance
-        if((t1 > 0 && alignZero(t1 - maxDistance) <= 0) ||(t2 > 0 && alignZero(t2 - maxDistance) <= 0))
-        {
+        if ((t1 > 0 && alignZero(t1 - maxDistance) <= 0) || (t2 > 0 && alignZero(t2 - maxDistance) <= 0)) {
             List<GeoPoint> list = new ArrayList<GeoPoint>();
             if (t1 > 0) {
                 list.add(new GeoPoint(this, ray.getPoint(t1)));

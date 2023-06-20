@@ -68,6 +68,7 @@ public class Plane extends Geometry {
     public Vector getNormal(Point point) {
         return getNormal();
     }
+
     /**
      * Returns the point on this plane.
      *
@@ -76,6 +77,7 @@ public class Plane extends Geometry {
     public Point getPoint() {
         return point;
     }
+
     /**
      * Finds the intersection points between a given ray and this plane.
      *

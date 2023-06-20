@@ -6,9 +6,6 @@ import primitives.Vector;
 
 import java.util.List;
 
-import static primitives.Util.alignZero;
-import static primitives.Util.isZero;
-
 /**
  * The Tube class represents an infinite cylinder (a tube) in Cartesian coordinate system.
  * It is defined by its axis ray (the ray that passes through the center of the tube) and radius.

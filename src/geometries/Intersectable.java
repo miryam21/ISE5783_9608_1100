@@ -4,8 +4,10 @@
  */
 package geometries;
 
-import primitives.*;
-import java.util.*;
+import primitives.Point;
+import primitives.Ray;
+
+import java.util.List;
 
 /**
  * The Intersectable class is an abstract class that represents an intersectable geometry.
@@ -22,6 +24,48 @@ public abstract class Intersectable {
     public List<Point> findIntersections(Ray ray) {
         var geoList = findGeoIntersections(ray);
         return geoList == null ? null : geoList.stream().map(gp -> gp.point).toList();
+    }
+
+    /**
+     * Finds the intersections between a given ray and this geometry within a specified maximum distance.
+     *
+     * @param ray         The ray to intersect with this geometry.
+     * @param maxDistance The maximum distance for valid intersections.
+     * @return A list of GeoPoint objects representing the intersection points, or null if no intersections found.
+     */
+    public final List<GeoPoint> findGeoIntersections(Ray ray, double maxDistance) {
+        return findGeoIntersectionsHelper(ray, maxDistance);
+    }
+
+    /**
+     * Finds the intersections between a given ray and this geometry with no maximum distance limit.
+     *
+     * @param ray The ray to intersect with this geometry.
+     * @return A list of GeoPoint objects representing the intersection points, or null if no intersections found.
+     */
+    public final List<GeoPoint> findGeoIntersections(Ray ray) {
+        return findGeoIntersections(ray, Double.POSITIVE_INFINITY);
+    }
+
+    /**
+     * Helper method to find the intersections between a given ray and this geometry within a specified maximum distance.
+     * Subclasses must implement this method to provide the actual intersection logic.
+     *
+     * @param ray         The ray to intersect with this geometry.
+     * @param maxDistance The maximum distance for valid intersections.
+     * @return A list of GeoPoint objects representing the intersection points, or null if no intersections found.
+     */
+    protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance);
+
+    /**
+     * Finds the closest intersection point between a given ray and this geometry.
+     *
+     * @param ray The ray to intersect with this geometry.
+     * @return The closest GeoPoint object representing the intersection point, or null if no intersections found.
+     */
+    public GeoPoint findClosestIntersection(Ray ray) {
+        List<GeoPoint> intersectionPoints = findGeoIntersections(ray);
+        return ray.findClosestGeoPoint(intersectionPoints);
     }
 
     /**
@@ -78,48 +122,6 @@ public abstract class Intersectable {
                     ", point=" + point +
                     '}';
         }
-    }
-
-    /**
-     * Finds the intersections between a given ray and this geometry within a specified maximum distance.
-     *
-     * @param ray         The ray to intersect with this geometry.
-     * @param maxDistance The maximum distance for valid intersections.
-     * @return A list of GeoPoint objects representing the intersection points, or null if no intersections found.
-     */
-    public final List<GeoPoint> findGeoIntersections(Ray ray, double maxDistance) {
-        return findGeoIntersectionsHelper(ray, maxDistance);
-    }
-
-    /**
-     * Finds the intersections between a given ray and this geometry with no maximum distance limit.
-     *
-     * @param ray The ray to intersect with this geometry.
-     * @return A list of GeoPoint objects representing the intersection points, or null if no intersections found.
-     */
-    public final List<GeoPoint> findGeoIntersections(Ray ray) {
-        return findGeoIntersections(ray, Double.POSITIVE_INFINITY);
-    }
-
-    /**
-     * Helper method to find the intersections between a given ray and this geometry within a specified maximum distance.
-     * Subclasses must implement this method to provide the actual intersection logic.
-     *
-     * @param ray         The ray to intersect with this geometry.
-     * @param maxDistance The maximum distance for valid intersections.
-     * @return A list of GeoPoint objects representing the intersection points, or null if no intersections found.
-     */
-    protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance);
-
-    /**
-     * Finds the closest intersection point between a given ray and this geometry.
-     *
-     * @param ray The ray to intersect with this geometry.
-     * @return The closest GeoPoint object representing the intersection point, or null if no intersections found.
-     */
-    public GeoPoint findClosestIntersection(Ray ray) {
-        List<GeoPoint> intersectionPoints = findGeoIntersections(ray);
-        return ray.findClosestGeoPoint(intersectionPoints);
     }
 }
 

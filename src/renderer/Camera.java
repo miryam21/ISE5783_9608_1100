@@ -5,14 +5,15 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
-import java.security.PrivateKey;
 import java.util.MissingResourceException;
 
 import static primitives.Util.isZero;
+
 /**
  * camera class
  */
 public class Camera {
+    protected RayTracerBase rayTracerBase;
     private Point p0;
     private Vector vRight;
     private Vector vUp;
@@ -21,7 +22,6 @@ public class Camera {
     private double width;
     private double distance;
     private ImageWriter imageWriter;
-    protected RayTracerBase rayTracerBase;
 
     /**
      * Constructs a camera with the specified location, view direction, and up direction.
@@ -85,6 +85,7 @@ public class Camera {
     public double getHeight() {
         return height;
     }
+
     /**
      * Returns the width of the view plane.
      *
@@ -166,10 +167,12 @@ public class Camera {
         this.imageWriter = imageWriter;
         return this;
     }
-    private Color castRay(int j,int i){
+
+    private Color castRay(int j, int i) {
         Ray ray = constructRay(this.imageWriter.getNx(), this.imageWriter.getNy(), j, i);
         return this.rayTracerBase.traceRay(ray);
-}
+    }
+
     /**
      * Sets the ray tracer for the camera.
      *
@@ -186,7 +189,7 @@ public class Camera {
      *
      * @throws MissingResourceException if any required values are not initialized
      */
-    public void renderImage() {
+    public Camera renderImage() {
         if (width == 0) {
             throw new MissingResourceException("ERROR: Some values are not initialized", "Camera", "width");
         }
@@ -208,6 +211,7 @@ public class Camera {
                 this.imageWriter.writePixel(j, i, color);
             }
         }
+        return this;
     }
 
     /**

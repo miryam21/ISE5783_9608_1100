@@ -1,7 +1,6 @@
 package lighting;
 
 import primitives.Color;
-import renderer.Camera;
 
 /**
  * The abstract class representing a light source in a scene.

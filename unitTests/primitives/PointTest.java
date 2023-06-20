@@ -2,7 +2,8 @@ package primitives;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * This class contains unit tests for the Point class.
@@ -10,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class PointTest {
 
     // Create three Point objects for use in the tests
-    Point p1 = new Point(1,1,1);
-    Point p2 = new Point(3,2,1);
-    Point p3 = new Point(4,3,2);
+    Point p1 = new Point(1, 1, 1);
+    Point p2 = new Point(3, 2, 1);
+    Point p3 = new Point(4, 3, 2);
 
     @Test
     void testDistanceSquared() {
@@ -32,7 +33,7 @@ class PointTest {
         // ============ Equivalence Partitions Tests ==============
 
         // TC03: Test that the distance between two points is calculated correctly
-        assertEquals(3, p2.distance(new Point(5,4,2)), "ERROR - Distance test in Point");
+        assertEquals(3, p2.distance(new Point(5, 4, 2)), "ERROR - Distance test in Point");
 
         // ============ Boundary Values Tests ===============
 
@@ -45,7 +46,7 @@ class PointTest {
         // ============ Equivalence Partitions Tests ==============
 
         // TC05: Test that adding a vector to a point produces the expected result
-        assertEquals(p3, p2.add(new Vector(1,1,1)), "ERROR - Add test in Point");
+        assertEquals(p3, p2.add(new Vector(1, 1, 1)), "ERROR - Add test in Point");
 
         // ============ No Boundary Tests ==============
     }
@@ -55,7 +56,7 @@ class PointTest {
         // ============ Equivalence Partitions Tests ==============
 
         //  TC06: Test that subtracting one point from another produces the expected result
-        assertEquals(new Vector(1,1,1), p3.subtract(p2), "ERROR - Subtract test in Point");
+        assertEquals(new Vector(1, 1, 1), p3.subtract(p2), "ERROR - Subtract test in Point");
 
         // ============ Boundary Values Tests ===============
 

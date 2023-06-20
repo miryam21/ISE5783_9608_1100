@@ -7,11 +7,12 @@ import java.util.Objects;
  * It is defined by its x, y, and z coordinates.
  */
 public class Point {
-    public static final Point ZERO = new Point(0,0,0);
+    public static final Point ZERO = new Point(0, 0, 0);
     final Double3 xyz; // The x, y, and z coordinates of the point
 
     /**
      * Constructs a point with the specified x, y, and z coordinates.
+     *
      * @param x The x coordinate of the point.
      * @param y The y coordinate of the point.
      * @param z The z coordinate of the point.
@@ -27,6 +28,7 @@ public class Point {
 
     /**
      * Returns true if this point is equal to the specified object.
+     *
      * @param o The object to compare with this point.
      * @return true if this point is equal to the specified object, false otherwise.
      */
@@ -39,6 +41,7 @@ public class Point {
 
     /**
      * Returns the hash code of this point.
+     *
      * @return The hash code of this point.
      */
     @Override
@@ -48,6 +51,7 @@ public class Point {
 
     /**
      * Returns a string representation of this point.
+     *
      * @return A string representation of this point.
      */
     @Override
@@ -57,6 +61,7 @@ public class Point {
 
     /**
      * Returns the square of the distance between this point and the specified point.
+     *
      * @param other The point to calculate the distance to.
      * @return The square of the distance between this point and the specified point.
      */
@@ -68,6 +73,7 @@ public class Point {
 
     /**
      * Returns the distance between this point and the specified point.
+     *
      * @param other The point to calculate the distance to.
      * @return The distance between this point and the specified point.
      */
@@ -77,6 +83,7 @@ public class Point {
 
     /**
      * Returns a new point that is the result of adding the specified vector to this point.
+     *
      * @param vector The vector to add to this point.
      * @return A new point that is the result of adding the specified vector to this point.
      */
@@ -86,12 +93,14 @@ public class Point {
 
     /**
      * Returns the vector that is the result of subtracting the specified point from this point.
+     *
      * @param point The point to subtract from this point.
      * @return The vector that is the result of subtracting the specified point from this point.
      */
     public Vector subtract(Point point) {
         return new Vector(xyz.subtract(point.xyz));
     }
+
     public double getX() {
         return xyz.d1;
     }
@@ -99,5 +108,8 @@ public class Point {
     public double getY() {
         return xyz.d2;
     }
-    public double getZ(){ return xyz.d3;}
+
+    public double getZ() {
+        return xyz.d3;
+    }
 }

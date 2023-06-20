@@ -7,7 +7,7 @@ import primitives.Vector;
 
 /**
  * The Geometry interface represents a geometric shape in three-dimensional space.
- *
+ * <p>
  * It provides a method for obtaining the normal vector to the surface of the shape
  * at a given point.
  */

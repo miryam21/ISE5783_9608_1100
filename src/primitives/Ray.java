@@ -1,14 +1,17 @@
 package primitives;
-import java.util.*;
-import java.security.PublicKey;
+
 import geometries.Intersectable.GeoPoint;
+
+import java.util.List;
+
 /**
  * The Ray class represents a ray in 3D space, with a starting point and a direction.
  */
 public class Ray {
+    private static final double DELTA = 0.1;// DELTA to move the point away from original point
     final protected Point p0; // the starting point of the ray
     final protected Vector dir; // the direction of the ray, as a normalized vector
-    private static final double DELTA = 0.1;// DELTA to move the point away from original point
+
     /**
      * Constructs a new Ray object with the given starting point and direction.
      * The direction vector is normalized so that it has a length of 1.
@@ -20,11 +23,13 @@ public class Ray {
         this.p0 = p0;
         this.dir = dir.normalize();
     }
+
     public Ray(Point p0, Vector dir, Vector n) {
-     double delta= dir.dotProduct(n) >= 0 ? DELTA : -DELTA;
-        this.p0= p0.add(n.scale(delta));
-        this.dir= dir;
+        double delta = dir.dotProduct(n) >= 0 ? DELTA : -DELTA;
+        this.p0 = p0.add(n.scale(delta));
+        this.dir = dir;
     }
+
     /**
      * Returns the starting point of the ray.
      *
@@ -55,9 +60,11 @@ public class Ray {
         if (!(o instanceof Ray ray)) return false;
         return dir.equals(ray.dir) && p0.equals(ray.p0);
     }
-    public Point getPoint(double t){
+
+    public Point getPoint(double t) {
         return getP0().add(getDir().scale(t));
     }
+
     /**
      * Returns a string representation of this Ray object.
      *
@@ -71,7 +78,7 @@ public class Ray {
     /**
      * Finds the closest point to the start of ray from a list of points.
      *
-     * @param lst The list of points to search for the closest point.
+     * @param list The list of points to search for the closest point.
      * @return The closest point to the reference point, or null if the list is null or empty.
      */
     /*public Point findClosestPoint(List<Point> lst) {
@@ -107,18 +114,16 @@ public class Ray {
         return points == null || points.isEmpty() ? null
                 : findClosestGeoPoint(points.stream().map(p -> new GeoPoint(null, p)).toList()).point;
     }
-    public GeoPoint findClosestGeoPoint(List<GeoPoint> GeoPointList)
-    {
-        if(GeoPointList == null)
+
+    public GeoPoint findClosestGeoPoint(List<GeoPoint> GeoPointList) {
+        if (GeoPointList == null)
             return null;
         GeoPoint closesPoint = GeoPointList.get(0);
         double minDistanceSquared = closesPoint.point.distanceSquared(this.p0);
         double distanceSquared;
-        for (GeoPoint geoPoint: GeoPointList)
-        {
+        for (GeoPoint geoPoint : GeoPointList) {
             distanceSquared = geoPoint.point.distanceSquared(this.p0);
-            if(distanceSquared < minDistanceSquared)
-            {
+            if (distanceSquared < minDistanceSquared) {
                 minDistanceSquared = distanceSquared;
                 closesPoint = geoPoint;
             }

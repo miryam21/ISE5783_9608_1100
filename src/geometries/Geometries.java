@@ -4,7 +4,6 @@
  */
 package geometries;
 
-import primitives.Point;
 import primitives.Ray;
 
 import java.util.ArrayList;
@@ -27,6 +26,7 @@ public class Geometries extends Intersectable {
 
     /**
      * Constructs a Geometries object with the given intersectable geometries.
+     *
      * @param geometries The intersectable geometries to add.
      */
     public Geometries(Intersectable... geometries) {
@@ -38,7 +38,8 @@ public class Geometries extends Intersectable {
 
     /**
      * Finds the intersection points between a ray and the geometries in this collection.
-     * @param ray The ray to find intersections with.
+     *
+     * @param ray         The ray to find intersections with.
      * @param maxDistance The maximum distance for valid intersections.
      * @return A list of GeoPoint objects representing the intersection points, or null if no intersections found.
      */
@@ -59,6 +60,7 @@ public class Geometries extends Intersectable {
 
     /**
      * Adds the given intersectable geometries to this collection.
+     *
      * @param geometries The intersectable geometries to add.
      */
     public void add(Intersectable... geometries) {
