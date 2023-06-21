@@ -4,10 +4,13 @@
 package renderer;
 
 import geometries.Cuboid;
+import geometries.Plane;
 import geometries.Polygon;
+import geometries.Sphere;
 import lighting.SpotLight;
 import org.junit.jupiter.api.Test;
 import primitives.Color;
+import primitives.Material;
 import primitives.Point;
 import primitives.Vector;
 import scene.Scene;
@@ -30,22 +33,41 @@ public class picture {
      */
     @Test
     public void twoSpheres() {
+        Color wallE = new Color(70,70,70);
+        Color yellowLight = new Color(250, 250, 10);
+        Color blue = new Color(10, 10, 300);
+        Color yellow = new Color(180, 180, 0);
+//        Point p1 = new Point(100, 0, -100);  // Top-left vertex of the floor plane
+//        Point p2 = new Point(100, 0, -100);   // Top-right vertex of the floor plane
+//        Point p3 = new Point(100, 0, 100);    // Bottom-right vertex of the floor plane
+//        Point p4 = new Point(-100, 0, 100);   // Bottom-left vertex of the floor plane
+
+        double floorWidth = 200;
+        double floorDepth = 200;
+        double floorHeight = 0;
+
+// Compute the vertices of the floor plane relative to the camera
+
+        //materials
+        Material wallM = new Material().setKD(0.5).setKS(0.5).setNShininess(5);
+//     scene.geometries.add(new Plane(new Point(0, 100, 0), new Vector(0, -1, 0)).setEmission(wallE).setMaterial(wallM));
+//        scene.geometries.add(new Plane(new Point(100, 0, 0), new Vector(-1, 0, 0)).setEmission(wallE).setMaterial(wallM));
+//        scene.geometries.add(new Plane(new Point(-100, 0, 0), new Vector(1, 0, 0)).setEmission(wallE).setMaterial(wallM));
+//       scene.geometries.add(new Plane(new Point(0, 0, 0), new Vector(0, 0, 1)).setEmission(new Color(50, 50, 50)).setMaterial(wallM));
+//        scene.geometries.add(new Plane(new Point(0, 0, 100), new Vector(0, 0, -1)).setEmission(wallE).setMaterial(wallM));
+
         //  משנה נקודת מבט מרחקים וכו
         scene.geometries.add(
                 new Cuboid(
-                        new Point(-130, 5, -1000),  // Move the cuboid a little bit to the left (y-coordinate and z-coordinate modified)
+                        new Point(-100, 5, -1000),  // Move the cuboid a little bit to the left (y-coordinate and z-coordinate modified)
                         90,                         // Width remains unchanged
-                        120,                        // Height remains unchanged
-                        250,                        // Depth remains unchanged
+                        90,                        // Height remains unchanged
+                        200,                        // Depth remains unchanged
                         new Color(PINK),            // Color remains unchanged
-                        0.6),                     // Material properties remain unchanged
-                new Polygon(
-                        new Point(-60, 40, 100),
-                        new Point(60, 40, 100),
-                        new Point(60, -90, -1000),
-                        new Point(-60, -90, -1000)).setEmission(new Color(BLUE))
+                        0.6)  );                  // Material properties remain unchanged
 
-        );
+        scene.geometries.add(new Sphere(40, new Point(40,-40,-1000)).setEmission(new Color(GREEN))
+                .setMaterial(new Material().setKD(0.4).setKS(0.3).setNShininess(100).setKT(0.3)));
 //        new Polygon(
 //                new Point(5, 5, -1000),
 //                new Point(5, 5, -1060),
@@ -53,6 +75,10 @@ public class picture {
 //                new Point(65, 5, -1000)
 //        ).setEmission(new Color(ORANGE))
 //       ,
+
+        scene.lights.add(new SpotLight(new Color(1020, 400, 400), new Point(40, -40, -1000), new Vector(-1, -1, -4)) //
+                .setkL(0.00001).setkQ(0.000005));
+
 //        new Polygon(
 //                new Point(5, -55, -1000),
 //                new Point(5, -55, -1060),
