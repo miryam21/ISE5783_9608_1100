@@ -8,7 +8,7 @@ public abstract class RayTracerBase {
     protected Scene scene;
 
     /**
-     * Constructs a RayTracerBase object with the specified scene.
+     * Constructs RayTracerBase object with the specified scene.
      *
      * @param scene The scene to be rendered
      */
