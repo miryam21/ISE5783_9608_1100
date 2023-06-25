@@ -31,43 +31,7 @@ public class Picture2Test {
         scene.setAmbientLight(new AmbientLight(new Color(WHITE), 0.15));
 
         scene.geometries.add(
-//
-//                new Sphere(12d, new Point(0, -70, -295)).setEmission(new Color(WHITE))
-//                        .setMaterial(new Material().setKD(0.7).setKS(0.3).setNShininess(30)),
-//                new Sphere(12d, new Point(0, -70, -196)).setEmission(new Color(BLUE)) //
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(-20, -70, -283)).setEmission(new Color(BLUE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(20, -70, -283)).setEmission(new Color(BLUE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(-37, -70, -265)).setEmission(new Color(WHITE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(37, -70, -265)).setEmission(new Color(WHITE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(-52, -70, -246)).setEmission(new Color(BLUE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(52, -70, -246)).setEmission(new Color(BLUE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(-62, -70, -224)).setEmission(new Color(WHITE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(62, -70, -224)).setEmission(new Color(WHITE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(-62, -70, -200)).setEmission(new Color(BLUE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(62, -70, -200)).setEmission(new Color(BLUE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(-55, -70, -177)).setEmission(new Color(WHITE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(-15, -70, -178)).setEmission(new Color(WHITE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(15, -70, -178)).setEmission(new Color(WHITE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(55, -70, -177)).setEmission(new Color(WHITE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(35, -70, -165)).setEmission(new Color(BLUE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
-//                new Sphere(12d, new Point(-35, -70, -165)).setEmission(new Color(BLUE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.7).setNShininess(30)),
+
                 //מראות
                 new Triangle(new Point(150, -200, -300), new Point(-270, -400, -350),
                         new Point(150, -200, 200)) //
@@ -126,15 +90,6 @@ public class Picture2Test {
                         new Point(23, -100, -260)
                 ).setEmission(new Color(YELLOW)),
 
-                // משטח
-//                new Polygon(
-//                        new Point(-150, -150, -310),
-//                        new Point(150, -150, -310),
-//                        new Point(150, 70, -325),
-//                        new Point(-150, 70, -325)
-//                ).setEmission(new Color(
-//                        100, 100, 100)).setMaterial(new Material()
-//                        .setKD(0.5).setKS(0.5).setNShininess(0)),
 
                 new Sphere(10,new Point(-10,-130,-200)).setEmission(new Color(RED))
                         .setMaterial(new Material().setKD(0.5).setKS(0.5).setNShininess(0)),
@@ -147,12 +102,8 @@ public class Picture2Test {
                         new Point(20, -135, -225),
                         new Point(20, -135, -223)
                 ).setEmission(new Color(BLACK)));
+        
 
-
-
-
-//        scene.lights.add(new SpotLight(new Color(0, 0, 179), new Point(0, 100, 100), new Vector(0, 0, -4))
-//                .setkL(2E-5).setkQ(1E-7));
         scene.lights.add(new SpotLight(new Color(245, 0, 179), new Point(75, 20, 100), new Vector(0, 0, -2))
                 .setkL(4E-5).setkQ(2E-7));
         scene.lights.add( //
