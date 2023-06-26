@@ -35,6 +35,8 @@ public class LightsTests {
     private final Camera camera2 = new Camera(new Point(0, 0, 1000),
             new Vector(0, 0, -1), new Vector(0, 1, 0))
             .setVPSize(200, 200).setVPDistance(1000);
+
+
     private final Material material = new Material().setKD(KD3).setKS(KS3).setNShininess(SHININESS);
     private final Color trianglesLightColor = new Color(800, 500, 250);
     private final Color sphereLightColor = new Color(800, 500, 0);
