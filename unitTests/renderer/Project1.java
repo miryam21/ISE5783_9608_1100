@@ -39,6 +39,225 @@ public class Project1 {
                 new Point(-120, -400, -280),
                 new Point(-120, 0, -280)
         ).setEmission(new Color(white)),
+                //שורה1
+                new Polygon(
+                        new Point(140, -400, -279),
+                        new Point(100, -400, -279),
+                        new Point(100, -360, -279),
+                        new Point(140, -360, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(140, -320, -279),
+                        new Point(100, -320, -279),
+                        new Point(100, -280, -279),
+                        new Point(140, -280, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(140, -240, -279),
+                        new Point(100, -240, -279),
+                        new Point(100, -200, -279),
+                        new Point(140, -200, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(140, -160, -279),
+                        new Point(100, -160, -279),
+                        new Point(100, -120, -279),
+                        new Point(140, -120, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(140, -80, -279),
+                        new Point(100, -80, -279),
+                        new Point(100, -40, -279),
+                        new Point(140, -40, -279)
+                ).setEmission(new Color(BLACK)),
+                //שורה 2
+                       new Polygon(
+                        new Point(100, -360, -279),
+                        new Point(60, -360, -279),
+                        new Point(60, -320, -279),
+                        new Point(100, -320, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(100, -280, -279),
+                        new Point(60, -280, -279),
+                        new Point(60, -240, -279),
+                        new Point(100, -240, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(100, -200, -279),
+                        new Point(60, -200, -279),
+                        new Point(60, -160, -279),
+                        new Point(100, -160, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(100, -120, -279),
+                        new Point(60, -120, -279),
+                        new Point(60, -80, -279),
+                        new Point(100, -80, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(100, -40, -279),
+                        new Point(60, -40, -279),
+                        new Point(60, -1, -279),
+                        new Point(100, -1, -279)
+                ).setEmission(new Color(BLACK)),
+                //שורה3
+                new Polygon(
+                        new Point(60, -400, -279),
+                        new Point(20, -400, -279),
+                        new Point(20, -360, -279),
+                        new Point(60, -360, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(60, -320, -279),
+                        new Point(20, -320, -279),
+                        new Point(20, -280, -279),
+                        new Point(60, -280, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(60, -240, -279),
+                        new Point(20, -240, -279),
+                        new Point(20, -200, -279),
+                        new Point(60, -200, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(60, -160, -279),
+                        new Point(20, -160, -279),
+                        new Point(20, -120, -279),
+                        new Point(60, -120, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(60, -80, -279),
+                        new Point(20, -80, -279),
+                        new Point(20, -40, -279),
+                        new Point(60, -40, -279)
+                ).setEmission(new Color(BLACK)),
+                //שורה4
+                new Polygon(
+                        new Point(20, -360, -279),
+                        new Point(-20, -360, -279),
+                        new Point(-20, -320, -279),
+                        new Point(20, -320, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(20, -280, -279),
+                        new Point(-20, -280, -279),
+                        new Point(-20, -240, -279),
+                        new Point(20, -240, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(20, -200, -279),
+                        new Point(-20, -200, -279),
+                        new Point(-20, -160, -279),
+                        new Point(20, -160, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(20, -120, -279),
+                        new Point(-20, -120, -279),
+                        new Point(-20, -80, -279),
+                        new Point(20, -80, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(20, -40, -279),
+                        new Point(-20, -40, -279),
+                        new Point(-20, -1, -279),
+                        new Point(20,-1, -279)
+                ).setEmission(new Color(BLACK)),
+                //שורה5
+                new Polygon(
+                        new Point(-20, -400, -279),
+                        new Point(-60, -400, -279),
+                        new Point(-60, -360, -279),
+                        new Point(-20, -360, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(-20, -320, -279),
+                        new Point(-60, -320, -279),
+                        new Point(-60, -280, -279),
+                        new Point(-20, -280, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(-20, -240, -279),
+                        new Point(-60, -240, -279),
+                        new Point(-60, -200, -279),
+                        new Point(-20, -200, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(-20, -160, -279),
+                        new Point(-60, -160, -279),
+                        new Point(-60, -120, -279),
+                        new Point(-20, -120, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(-20, -80, -279),
+                        new Point(-60, -80, -279),
+                        new Point(-60, -40, -279),
+                        new Point(-20, -40, -279)
+                ).setEmission(new Color(BLACK)),
+                //שורה6
+                new Polygon(
+                            new Point(-60, -360, -279),
+                            new Point(-100, -360, -279),
+                            new Point(-100, -320, -279),
+                            new Point(-60, -320, -279)
+                    ).setEmission(new Color(BLACK)),
+                    new Polygon(
+                            new Point(-60, -280, -279),
+                            new Point(-100, -280, -279),
+                            new Point(-100, -240, -279),
+                            new Point(-60, -240, -279)
+                    ).setEmission(new Color(BLACK)),
+                    new Polygon(
+                            new Point(-60, -200, -279),
+                            new Point(-100, -200, -279),
+                            new Point(-100, -160, -279),
+                            new Point(-60, -160, -279)
+                    ).setEmission(new Color(BLACK)),
+                    new Polygon(
+                            new Point(-60, -120, -279),
+                            new Point(-100, -120, -279),
+                            new Point(-100, -80, -279),
+                            new Point(-60, -80, -279)
+                    ).setEmission(new Color(BLACK)),
+                    new Polygon(
+                            new Point(-60, -40, -279),
+                            new Point(-100, -40, -279),
+                            new Point(-100, 0, -279),
+                            new Point(-60, 0, -279)
+                    ).setEmission(new Color(BLACK)),
+                //שורה7
+                new Polygon(
+                        new Point(-100, -400, -279),
+                        new Point(-120, -400, -279),
+                        new Point(-120, -360, -279),
+                        new Point(-100, -360, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(-100, -320, -279),
+                        new Point(-120, -320, -279),
+                        new Point(-120, -280, -279),
+                        new Point(-100, -280, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(-100, -240, -279),
+                        new Point(-120, -240, -279),
+                        new Point(-120, -200, -279),
+                        new Point(-100, -200, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(-100, -160, -279),
+                        new Point(-120, -160, -279),
+                        new Point(-120, -120, -279),
+                        new Point(-100, -120, -279)
+                ).setEmission(new Color(BLACK)),
+                new Polygon(
+                        new Point(-100, -80, -279),
+                        new Point(-120, -80, -279),
+                        new Point(-120, -40, -279),
+                        new Point(-100, -40, -279)
+                ).setEmission(new Color(BLACK)),
+
+
                 //קיר שמאלי
         new Polygon(
                 new Point(140, -400, -90),
@@ -135,7 +354,7 @@ public class Project1 {
                 new Sphere(15d, new Point(0, -230, -110)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)));
 
-        scene.lights.add(new SpotLight(new Color(white), new Point(0, -230, -110), new Vector(0, 0, -1)) //
+        scene.lights.add(new SpotLight(new Color(blue), new Point(0, -230, -110), new Vector(0, 0, -1)) //
                 .setkL(4E-5).setkQ(2E-7));
 
 
