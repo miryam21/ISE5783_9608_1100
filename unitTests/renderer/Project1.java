@@ -10,7 +10,7 @@ import static java.awt.Color.*;
 public class Project1 {
     private Scene scene = new Scene("Test scene").setBackground(new Color(WHITE)).setBackground(new Color(GRAY));
     @Test
-    public void heart() {
+    public void room() {
 //         Camera camera = new Camera(new Point(0, -150, 800), new Vector(0, 0, -1), new Vector(0, 1, 0))
 //              .setVPSize(200, 200).setVPDistance(1000);
 
@@ -349,14 +349,40 @@ public class Project1 {
                 new Point(-45, -150, -225),
                 new Point(65, -150, -225)
         ).setEmission(new Color(234, 235, 240)));
-
+//מנורה 1
         scene.geometries.add(
-                new Sphere(15d, new Point(0, -230, -110)).setEmission(new Color(BLUE))
+                new Sphere(9, new Point(15, -140, -150)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)));
 
-        scene.lights.add(new SpotLight(new Color(blue), new Point(0, -230, -110), new Vector(0, 0, -1)) //
-                .setkL(4E-5).setkQ(2E-7));
+//        scene.geometries.add(new Sphere(40, new Point(40,-40,-1000)).setEmission(new Color(GREEN))
+//                .setMaterial(new Material().setKD(0.4).setKS(0.3).setNShininess(100).setKT(0.3)));\
+        //  אור 1
+        scene.lights.add( //
+                new SpotLight(new Color(1000, 600, 0), new Point(15, -140, -150), new Vector(-1, -1, -2)) //
+                        .setkL(0.0004).setkQ(0.0000006));
+//        scene.lights.add(new SpotLight(new Color(white), new Point(0, -230, -110), new Vector(1, 0, -1)) //
+//                .setkL(4E-5).setkQ(2E-7));
 
+        // מנורה קטנה 2
+        scene.geometries.add(
+                new Sphere(5, new Point(15, -300, -123)).setEmission(new Color(BLUE))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)));
+
+//        scene.geometries.add(new Sphere(40, new Point(40,-40,-1000)).setEmission(new Color(GREEN))
+//                .setMaterial(new Material().setKD(0.4).setKS(0.3).setNShininess(100).setKT(0.3)));
+        scene.lights.add( //   //אור מנורה 2
+                new SpotLight(new Color(1000, 600, 0), new Point(15, -300, -123), new Vector(-1, -1, -2)) //
+                        .setkL(0.0004).setkQ(0.0000006));
+        // מנורה 3
+        scene.geometries.add(
+                new Sphere(11d, new Point(0, -230, -130)).setEmission(new Color(BLUE))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)));
+
+//        scene.geometries.add(new Sphere(40, new Point(40,-40,-1000)).setEmission(new Color(GREEN))
+//                .setMaterial(new Material().setKD(0.4).setKS(0.3).setNShininess(100).setKT(0.3)));
+        scene.lights.add( //   //אור מנורה 3
+                new SpotLight(new Color(1000, 600, 0), new Point(0, -230, -130), new Vector(-1, -1, -2)) //
+                        .setkL(0.0004).setkQ(0.0000006));
 
         ImageWriter imageWriter = new ImageWriter("Project1", 600, 600);
         camera.setImageWriter(imageWriter)
