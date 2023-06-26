@@ -31,7 +31,7 @@ public class Project1 {
                         new Point(-120, -400, -280),
                         new Point(140, -400, -280),
                         new Point(140, -400, -90)
-                ).setEmission(new Color(153,184,147)),
+                ).setEmission(new Color(109,141,175)),
                 //רצפה
         new Polygon(
                 new Point(140, 0, -280),
@@ -264,14 +264,14 @@ public class Project1 {
                 new Point(140, -400, -280),
                 new Point(140, 0, -280),
                 new Point(140, 0, -90)
-        ).setEmission(new Color(185,204,179)),
+        ).setEmission(new Color(185,202,222)),
                 //קיר ימני
                 new Polygon(
                         new Point(-120, -400, -90),
                         new Point(-120, 0, -90),
                         new Point(-120, 0, -280),
                         new Point(-120, -400, -280)
-                ).setEmission(new Color(185,204,179)),
+                ).setEmission(new Color(185,202,222)),
         //תקרה
         new Polygon(
                 new Point(140, -400, -90),
@@ -283,7 +283,7 @@ public class Project1 {
 
                 //שיש
                 new Cuboid(
-                        new Point(-120, -230, -240), 260, 162, 5,new Color(0,82,33)),
+                        new Point(-120, -230, -240), 260, 162, 5,new Color(9,28,87)),
               //דופן שיש קידמי
         new Polygon(
                 new Point(140, -230, -240),
@@ -353,7 +353,9 @@ public class Project1 {
                 new Point(65, -150, -225)
         ).setEmission(new Color(234, 235, 240)),
                 new Cuboid(
-                        new Point(-45, -200, -226), 110,200 , 15,new Color(80,133,188)),
+                        new Point(-45, -200, -226), 110,200 , 15,new Color(146,206,223)),
+                new Cuboid(
+                        new Point(-45, -200, -226), 110,200 , 15,new Color(146,206,223)),
 
                 //ספוטים:
                 //שמאל:
