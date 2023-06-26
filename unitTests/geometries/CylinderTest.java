@@ -13,7 +13,7 @@ class CylinderTest {
      */
     @Test
     void testGetNormal() {
-        Cylinder cyl = new Cylinder(1.0, new Ray(new Point(0, 0, 1), new Vector(0, 1, 0)), 1d);
+        Cylinder cyl = new Cylinder( 1d,new Ray(new Point(0, 0, 1), new Vector(0, 1, 0)), 1.0);
 
         // ============ Equivalence Partitions Tests ==============
         // TC01: Point at a side of the cylinder
