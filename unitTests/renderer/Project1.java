@@ -357,8 +357,6 @@ public class Project1 {
         ).setEmission(new Color(234, 235, 240)),
                 new Cuboid(
                         new Point(-45, -200, -226), 110,200 , 15,new Color(146,206,223)),
-                new Cuboid(
-                        new Point(-45, -200, -226), 110,200 , 15,new Color(146,206,223)),
 
                 //ספוטים:
                 //שמאל:
