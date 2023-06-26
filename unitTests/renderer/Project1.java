@@ -226,7 +226,7 @@ public class Project1 {
                             new Point(-60, 0, -279)
                     ).setEmission(new Color(BLACK)),
                 //שורה7
-                new Polygon(
+                     new Polygon(
                         new Point(-100, -400, -279),
                         new Point(-120, -400, -279),
                         new Point(-120, -360, -279),
@@ -295,11 +295,11 @@ public class Project1 {
         //מדפים
         //מדף שמאל
                 new Cuboid(
-                        new Point(100, -300, -200), 80, 80, 5,new Color(158,116, 39)),
-                new Cuboid(
-                        new Point(100, -300, -170), 80, 80, 5,new Color(158,116, 39)),
-                new Cuboid(
-                        new Point(100, -300, -140), 80, 80, 5,new Color(158,116, 39)),
+                            new Point(100, -300, -200), 80, 80, 5,new Color(158,116, 39)),
+                    new Cuboid(
+                            new Point(100, -300, -170), 80, 80, 5,new Color(158,116, 39)),
+                    new Cuboid(
+                            new Point(100, -300, -140), 80, 80, 5,new Color(158,116, 39)),
         //מדף ימין
                 new Cuboid(
                         new Point(-160, -300, -200), 80, 80, 5,new Color(158,116, 39)),
@@ -309,13 +309,16 @@ public class Project1 {
                         new Point(-160, -300, -140), 80, 80, 5,new Color(158,116, 39)),
 
         //מראה מרכזית
-        new Polygon(
-                new Point(70, -399, -110),
-                new Point(-50, -399, -110),
-                new Point(-50, -399, -210),
-                new Point(70, -399, -210)
+                new Polygon(
+                new Point(50, -399, -130),
+                new Point(-30, -399, -130),
+                new Point(-30, -399, -200),
+                new Point(50, -399, -200)
         ).setEmission(new Color(black)).setMaterial(new Material().setKR(0.9)),
-        //תאורה מרכזית
+        new Triangle(new Point(50, -399, -130),new Point(-30, -399, -130),new Point(10, -399, -115))
+                .setEmission(new Color(black)).setMaterial(new Material().setKR(0.9)),
+        new Triangle(new Point(50, -399, -200),new Point(-30, -399, -200),new Point(10, -399, -215))
+                        .setEmission(new Color(black)).setMaterial(new Material().setKR(0.9)),
 
 
 //        כיור
@@ -348,41 +351,54 @@ public class Project1 {
                 new Point(-45, -150, -240),
                 new Point(-45, -150, -225),
                 new Point(65, -150, -225)
-        ).setEmission(new Color(234, 235, 240)));
-//מנורה 1
-        scene.geometries.add(
+        ).setEmission(new Color(234, 235, 240)),
+                //ספוטים:
+                //שמאל:
+                new Sphere(4, new Point(-37, -400, -135)).setEmission(new Color(white))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
+                new Sphere(4, new Point(-37, -400, -150)).setEmission(new Color(white))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
+                new Sphere(4, new Point(-37, -400, -165)).setEmission(new Color(white))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
+                new Sphere(4, new Point(-37, -400, -180)).setEmission(new Color(white))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
+                new Sphere(4, new Point(-37, -400, -195)).setEmission(new Color(white))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
+                //ימין:
+                new Sphere(4, new Point(57, -400, -135)).setEmission(new Color(white))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
+                new Sphere(4, new Point(57, -400, -150)).setEmission(new Color(white))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
+                new Sphere(4, new Point(57, -400, -165)).setEmission(new Color(white))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
+                new Sphere(4, new Point(57, -400, -180)).setEmission(new Color(white))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
+                new Sphere(4, new Point(57, -400, -195)).setEmission(new Color(white))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
+        //מנורה 1
                 new Sphere(11, new Point(15, -140, -150)).setEmission(new Color(BLUE))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)),
+        // מנורה קטנה 2
+                new Sphere(8, new Point(25, -300, -123)).setEmission(new Color(BLUE))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)),
+        // מנורה 3
+                new Sphere(15d, new Point(0, -230, -130)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)));
 
-//        scene.geometries.add(new Sphere(40, new Point(40,-40,-1000)).setEmission(new Color(GREEN))
-//                .setMaterial(new Material().setKD(0.4).setKS(0.3).setNShininess(100).setKT(0.3)));\
+
         //  אור 1
         scene.lights.add( //
                 new SpotLight(new Color(1000, 600, 0), new Point(15, -140, -150), new Vector(-1, -1, -2)) //
                         .setkL(0.0004).setkQ(0.0000006));
-//        scene.lights.add(new SpotLight(new Color(white), new Point(0, -230, -110), new Vector(1, 0, -1)) //
-//                .setkL(4E-5).setkQ(2E-7));
 
-        // מנורה קטנה 2
-        scene.geometries.add(
-                new Sphere(8, new Point(25, -300, -123)).setEmission(new Color(BLUE))
-                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)));
-
-//        scene.geometries.add(new Sphere(40, new Point(40,-40,-1000)).setEmission(new Color(GREEN))
-//                .setMaterial(new Material().setKD(0.4).setKS(0.3).setNShininess(100).setKT(0.3)));
         scene.lights.add( //   //אור מנורה 2
                 new SpotLight(new Color(1000, 600, 0), new Point(15, -300, -123), new Vector(-1, -1, -2)) //
                         .setkL(0.0004).setkQ(0.0000006));
-        // מנורה 3
-        scene.geometries.add(
-                new Sphere(15d, new Point(0, -230, -130)).setEmission(new Color(BLUE))
-                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)));
 
-//        scene.geometries.add(new Sphere(40, new Point(40,-40,-1000)).setEmission(new Color(GREEN))
-//                .setMaterial(new Material().setKD(0.4).setKS(0.3).setNShininess(100).setKT(0.3)));
         scene.lights.add( //   //אור מנורה 3
                 new SpotLight(new Color(1000, 600, 0), new Point(0, -230, -130), new Vector(-1, -1, -2)) //
                         .setkL(0.0004).setkQ(0.0000006));
+        //ספוטים
 
         ImageWriter imageWriter = new ImageWriter("Project1", 600, 600);
         camera.setImageWriter(imageWriter)
