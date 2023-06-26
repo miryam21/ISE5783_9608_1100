@@ -351,7 +351,7 @@ public class Project1 {
         ).setEmission(new Color(234, 235, 240)));
 //מנורה 1
         scene.geometries.add(
-                new Sphere(9, new Point(15, -140, -150)).setEmission(new Color(BLUE))
+                new Sphere(11, new Point(15, -140, -150)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)));
 
 //        scene.geometries.add(new Sphere(40, new Point(40,-40,-1000)).setEmission(new Color(GREEN))
@@ -365,7 +365,7 @@ public class Project1 {
 
         // מנורה קטנה 2
         scene.geometries.add(
-                new Sphere(5, new Point(15, -300, -123)).setEmission(new Color(BLUE))
+                new Sphere(8, new Point(25, -300, -123)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)));
 
 //        scene.geometries.add(new Sphere(40, new Point(40,-40,-1000)).setEmission(new Color(GREEN))
@@ -375,7 +375,7 @@ public class Project1 {
                         .setkL(0.0004).setkQ(0.0000006));
         // מנורה 3
         scene.geometries.add(
-                new Sphere(11d, new Point(0, -230, -130)).setEmission(new Color(BLUE))
+                new Sphere(15d, new Point(0, -230, -130)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)));
 
 //        scene.geometries.add(new Sphere(40, new Point(40,-40,-1000)).setEmission(new Color(GREEN))
