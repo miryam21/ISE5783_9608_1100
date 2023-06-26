@@ -112,4 +112,13 @@ public class Point {
     public double getZ() {
         return xyz.d3;
     }
+
+    public Point getPoint(Vector direction , double t) {
+        try {
+            return this.add(direction.scale(t));
+        }
+        catch (Exception e){
+            return this;
+        }
+    }
 }

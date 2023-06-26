@@ -1,68 +1,94 @@
-/**
- * The Cylinder class represents a geometric cylinder in three-dimensional space.
- */
 package geometries;
 
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
-import static primitives.Util.alignZero;
-import static primitives.Util.isZero;
+import java.util.ArrayList;
+import java.util.List;
 
+import static primitives.Util.alignZero;
+
+/**
+ *A class that implements a cylinder, it is a finite pipe and therefore has a height.
+ * The class inherits from Tube.
+ */
 public class Cylinder extends Tube {
 
     /**
-     * The height of the cylinder.
+     * height of the cylinder
      */
-    final protected double height;
+    final private double height;
+
 
     /**
-     * Constructs a new Cylinder object with the given height.
-     *
-     * @param height the height of the cylinder
+     * ctr for Cylinder
+     * @param radius
+     * @param axisRay
+     * @param height
      */
-    public Cylinder(double height, Ray exisRay, double radius) {
-        super(exisRay, radius);
+    public Cylinder(double radius, Ray axisRay, double height) {
+        super( axisRay,radius);
         this.height = height;
     }
 
     /**
-     * Returns the height of the cylinder.
-     *
-     * @return the height of the cylinder
+     * get the height of the Cylinder
+     * @return
      */
     public double getHeight() {
         return height;
     }
 
-    /**
-     * Returns the normal vector of the cylinder surface at the specified point.
-     *
-     * @param point the point on the surface of the cylinder
-     * @return the normal vector of the cylinder surface at the specified point
-     */
+
+    // region getNormal
     @Override
     public Vector getNormal(Point point) {
+        Vector v = axisRay.getDir();
         Point p0 = axisRay.getP0();
-        Vector v = axisRay.getDir();//  vector direction of ray
+        Point upperPoint = p0.add(v.scale(height));
 
-        if (point.equals(p0))
-            return v;
+        if (point.equals(p0) || point.equals(upperPoint) || v.dotProduct(point.subtract(p0)) == 0 || v.dotProduct(point.subtract(upperPoint)) == 0)
+            return axisRay.getDir();
+        return super.getNormal(point);
+    }
 
-        // projection of P-p0 on the ray:
-        Vector u = point.subtract(p0);
+    //endregion
 
-        // distance from p0 to the o who is in from of point
-        double t = alignZero(u.dotProduct(v));
+    @Override
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray,double maxDistance) {
+        List<GeoPoint> intersections = super.findGeoIntersectionsHelper(ray,maxDistance);
 
-        // if the point is at a base
-        if (t == 0 || isZero(height - t))
-            return v;
+        List<GeoPoint> pointList = new ArrayList<>();
 
-        //the other point on the axis facing the given point
-        Point o = p0.add(v.scale(t));
+        if(intersections != null) {
+            for (GeoPoint geoPoint : intersections) {
+                double projection = geoPoint.point.subtract(axisRay.getP0()).dotProduct(axisRay.getDir());
+                if (alignZero(projection) > 0 && alignZero(projection - this.height) < 0)
+                    pointList.add(new GeoPoint(this,geoPoint.point));
+            }
+        }
 
-        return point.subtract(o).normalize();
+        // intersect with base
+        Circle base = new Circle(axisRay.getP0(), radius, axisRay.getDir());
+        intersections = base.findGeoIntersectionsHelper(ray,maxDistance);
+        if(intersections != null)
+            pointList.add(new GeoPoint(this,intersections.get(0).point));
+
+        base = new Circle(axisRay.getPoint(height), radius, axisRay.getDir());
+        intersections = base.findGeoIntersectionsHelper(ray,maxDistance);
+        if(intersections != null)
+            pointList.add(new GeoPoint(this, intersections.get(0).point));
+
+        if (pointList.size() == 0)
+            return null;
+        return pointList;
+    }
+
+    @Override
+    public String toString() {
+        return "height=" + height +
+                ", axisRay=" + axisRay +
+                ", radius=" + radius ;
     }
 }
