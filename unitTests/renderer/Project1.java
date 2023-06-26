@@ -31,7 +31,7 @@ public class Project1 {
                         new Point(-120, -400, -280),
                         new Point(140, -400, -280),
                         new Point(140, -400, -90)
-                ).setEmission(new Color(109,141,175)),
+                ).setEmission(new Color(153,184,147)),
                 //רצפה
         new Polygon(
                 new Point(140, 0, -280),
@@ -264,14 +264,14 @@ public class Project1 {
                 new Point(140, -400, -280),
                 new Point(140, 0, -280),
                 new Point(140, 0, -90)
-        ).setEmission(new Color(185,202,222)),
+        ).setEmission(new Color(185,204,179)),
                 //קיר ימני
                 new Polygon(
                         new Point(-120, -400, -90),
                         new Point(-120, 0, -90),
                         new Point(-120, 0, -280),
                         new Point(-120, -400, -280)
-                ).setEmission(new Color(185,202,222)),
+                ).setEmission(new Color(185,204,179)),
         //תקרה
         new Polygon(
                 new Point(140, -400, -90),
@@ -283,7 +283,7 @@ public class Project1 {
 
                 //שיש
                 new Cuboid(
-                        new Point(-120, -230, -240), 260, 162, 5,new Color(9,28,87)),
+                        new Point(-120, -230, -240), 260, 162, 5,new Color(0,82,33)),
               //דופן שיש קידמי
         new Polygon(
                 new Point(140, -230, -240),
@@ -352,6 +352,9 @@ public class Project1 {
                 new Point(-45, -150, -225),
                 new Point(65, -150, -225)
         ).setEmission(new Color(234, 235, 240)),
+                new Cuboid(
+                        new Point(-45, -200, -226), 110,200 , 15,new Color(80,133,188)),
+
                 //ספוטים:
                 //שמאל:
                 new Sphere(4, new Point(-37, -400, -135)).setEmission(new Color(white))
@@ -375,6 +378,8 @@ public class Project1 {
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
                 new Sphere(4, new Point(57, -400, -195)).setEmission(new Color(white))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
+        new Cylinder(10 ,new Ray(new Point(0, -200, -150),new Vector(-1,0,0)), 10)
+                .setEmission(new Color(RED)),
         //מנורה 1
                 new Sphere(11, new Point(15, -140, -150)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)),
