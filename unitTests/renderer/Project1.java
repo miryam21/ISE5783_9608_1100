@@ -359,33 +359,33 @@ public class Project1 {
 
                 //ספוטים:
                 //שמאל:
-                new Sphere(4, new Point(-37, -400, -135)).setEmission(new Color(blue))
-                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.9)),
-                new Sphere(4, new Point(-37, -400, -150)).setEmission(new Color(blue))
+                new Sphere(4, new Point(-37, -400, -135))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
-                new Sphere(4, new Point(-37, -400, -165)).setEmission(new Color(blue))
+                new Sphere(4, new Point(-37, -400, -150))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
-                new Sphere(4, new Point(-37, -400, -180)).setEmission(new Color(blue))
+                new Sphere(4, new Point(-37, -400, -165))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
-                new Sphere(4, new Point(-37, -400, -195)).setEmission(new Color(blue))
+                new Sphere(4, new Point(-37, -400, -180))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
-                //ימין:
+                new Sphere(4, new Point(-37, -400, -195))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
 
 
 
-                new Sphere(4, new Point(57, -400, -135)).setEmission(new Color(blue))
+// left
+                new Sphere(4, new Point(57, -400, -135))
                         .setMaterial(new Material().setKD(0.4).setKS(0.3).setNShininess(100).setKT(0.3)),
-                new Sphere(4, new Point(57, -400, -150)).setEmission(new Color(blue))
+                new Sphere(4, new Point(57, -400, -150))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
-                new Sphere(4, new Point(57, -400, -165)).setEmission(new Color(blue))
+                new Sphere(4, new Point(57, -400, -165))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
-                new Sphere(4, new Point(57, -400, -180)).setEmission(new Color(blue))
-                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
-                new Sphere(4, new Point(57, -400, -195)).setEmission(new Color(blue))
+                new Sphere(4, new Point(57, -400, -180))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(1)),
+                new Sphere(4, new Point(57, -400, -195))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
 
-        new Cylinder(20,new Ray(new Point(-50, -200, -150),new Vector(0,0,1)),30)
-                .setEmission(new Color(RED)),
+//        new Cylinder(20,new Ray(new Point(-50, -200, -150),new Vector(0,0,1)),30)
+//                .setEmission(new Color(RED)),
 
                 new Sphere(15, new Point(120, -400, -110))
                         .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.6)),
@@ -426,7 +426,9 @@ public class Project1 {
 
 
         //ספוטים
-        scene.lights.add(new PointLight(new Color(1000, 600, 0), new Point(-37, -400, -135))
+        scene.lights.add(new PointLight(new Color(1000,600,0), new Point(-37, -400, -135))
+                .setkL(0.001).setkQ(0.0002));
+        scene.lights.add(new PointLight(new Color(1000,600,0), new Point(-37, -400, -150))
                 .setkL(0.001).setkQ(0.0002));
         scene.lights.add(new PointLight(new Color(1000, 600, 0), new Point(-37, -400, -165))
                 .setkL(0.001).setkQ(0.0002));
@@ -436,6 +438,8 @@ public class Project1 {
                 .setkL(0.001).setkQ(0.0002));
 
         scene.lights.add(new PointLight(new Color(1000, 600, 0), new Point(57, -400, -135))
+                .setkL(0.001).setkQ(0.0002));
+        scene.lights.add(new PointLight(new Color(1000,600,0), new Point(-37, -400, -150))
                 .setkL(0.001).setkQ(0.0002));
         scene.lights.add(new PointLight(new Color(1000, 600, 0), new Point(57, -400, -165))
                 .setkL(0.001).setkQ(0.0002));
