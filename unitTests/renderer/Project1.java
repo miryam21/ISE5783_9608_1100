@@ -387,8 +387,8 @@ public class Project1 {
         new Cylinder(20,new Ray(new Point(-50, -200, -150),new Vector(0,0,1)),30)
                 .setEmission(new Color(RED)),
 
-                new Sphere(20, new Point(110, -400, -100)).setEmission(new Color(BLUE))
-                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)),
+                new Sphere(15, new Point(120, -400, -110))
+                        .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.6)),
         //מנורה 1
                 new Sphere(11, new Point(15, -140, -150)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)),
