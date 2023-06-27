@@ -297,18 +297,18 @@ public class Project1 {
         //מדפים
         //מדף שמאל
                 new Cuboid(
-                            new Point(100, -300, -200), 80, 80, 5,new Color(158,116, 39)),
+                            new Point(100, -300, -200), 60, 80, 5,new Color(158,116, 39)),
                     new Cuboid(
-                            new Point(100, -300, -170), 80, 80, 5,new Color(158,116, 39)),
+                            new Point(100, -300, -170), 60, 80, 5,new Color(158,116, 39)),
                     new Cuboid(
-                            new Point(100, -300, -140), 80, 80, 5,new Color(158,116, 39)),
+                            new Point(100, -300, -140), 60, 80, 5,new Color(158,116, 39)),
         //מדף ימין
                 new Cuboid(
-                        new Point(-160, -300, -200), 80, 80, 5,new Color(158,116, 39)),
+                        new Point(-160, -300, -200), 80, 60, 5,new Color(158,116, 39)),
                 new Cuboid(
-                        new Point(-160, -300, -170), 80, 80, 5,new Color(158,116, 39)),
+                        new Point(-160, -300, -170), 80, 60, 5,new Color(158,116, 39)),
                 new Cuboid(
-                        new Point(-160, -300, -140), 80, 80, 5,new Color(158,116, 39)),
+                        new Point(-160, -300, -140), 80, 60, 5,new Color(158,116, 39)),
 
         //מראה מרכזית
                 new Polygon(
