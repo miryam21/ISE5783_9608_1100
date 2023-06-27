@@ -15,13 +15,13 @@ public class Project1 {
     public void room() {
 //         Camera camera = new Camera(new Point(0, -150, 800), new Vector(0, 0, -1), new Vector(0, 1, 0))
 //              .setVPSize(200, 200).setVPDistance(400);
-
+//
 //          Camera camera = new Camera(new Point(1100, -50, -250), new Vector(-1, 0, 0), new Vector(0, 0, 1))
 //        .setVPSize(200, 200).setVPDistance(400);
 
 //        Camera camera = new Camera(new Point(10, 1200, -200), new Vector(0, -1, 0), new Vector(1 / 2, 0, 1))
 //        .setVPSize(200, 200).setVPDistance(1000);
-
+// רגילההה
         Camera camera = new Camera(new Point(10, 1200, -200), new Vector(0, -1, 0), new Vector(1 / 2, 0, 1))
                 .setVPSize(200, 200).setVPDistance(700);
 
@@ -276,12 +276,12 @@ public class Project1 {
 //                        new Point(-120, -400, -280)
 //                ).setEmission(new Color(185,202,222)),
         //תקרה
-        new Polygon(
-                new Point(140, -400, -90),
-                new Point(-120, -400, -90),
-                new Point(-120, 0, -90),
-                new Point(140, 0, -90)
-        ).setEmission(new Color(LIGHT_GRAY)),
+//        new Polygon(
+//                new Point(140, -400, -90),
+//                new Point(-120, -400, -90),
+//                new Point(-120, 0, -90),
+//                new Point(140, 0, -90)
+//        ).setEmission(new Color(LIGHT_GRAY)),
 
 
                 //שיש
@@ -389,11 +389,11 @@ public class Project1 {
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
 
 
-
-                new Sphere(13, new Point(120, -400, -110))
+// כדור בדולח
+                new Sphere(13, new Point(120, -400, -190))
                         .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.9)),
 
-                new Sphere(13, new Point(-100, -400, -110))
+                new Sphere(13, new Point(-100, -400, -190))
                         .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.9)),
         //מנורה 1
                 new Sphere(11, new Point(15, -140, -150)).setEmission(new Color(BLUE))
@@ -410,11 +410,28 @@ public class Project1 {
                 new Sphere(15d, new Point(0, -230, -130)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)),
                  new Cylinder( new Ray(new Point(0,-230,-100),new Vector(0,0,-1)),0.7,15)
-                         .setEmission( new Color(BLACK)));
+                         .setEmission( new Color(BLACK)),
+//גלילי נייר שמאל
+                new Cylinder( new Ray(new Point(140,-330,-128),new Vector(0,0,-1)),10,15)
+                        .setEmission( new Color(white)),
+                new Cylinder( new Ray(new Point(110,-330,-128),new Vector(0,0,-1)),10,15)
+                        .setEmission( new Color(white)),
+                new Cylinder( new Ray(new Point(127,-330,-115),new Vector(0,0,-1)),10,15)
+                        .setEmission( new Color(white)),
+//גלילי נייר שמאל
+                new Cylinder( new Ray(new Point(-85,-330,-128),new Vector(0,0,-1)),10,15)
+                        .setEmission( new Color(white)),
+                new Cylinder( new Ray(new Point(-115,-330,-128),new Vector(0,0,-1)),10,15)
+                        .setEmission( new Color(white)),
+                new Cylinder( new Ray(new Point(-82,-330,-115),new Vector(0,0,-1)),10,15)
+                        .setEmission( new Color(white)),
 
-
-
-
+//סבון בקבוק
+                new Cylinder( new Ray(new Point(90,-240,-225),new Vector(0,0,-1)),8,15)
+                        .setEmission( new Color(BLACK)),
+                new Sphere(8, new Point(90,-240,-225)).setEmission(new Color(BLACK)),
+                new Cylinder(new Ray(new Point(90,-240,-215),new Vector(0,0,-1)),4,6)
+                        .setEmission(new Color(BLACK)));
 //        scene.geometries.add(new Sphere(40, new Point(40,-200,-200)).setEmission(new Color(GREEN))
 //                        .setMaterial(new Material().setKD(0.4).setKS(0.3).setNShininess(100).setKT(0.3)));
 
