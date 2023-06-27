@@ -389,6 +389,9 @@ public class Project1 {
 
                 new Sphere(15, new Point(120, -400, -110))
                         .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.6)),
+
+                new Sphere(15, new Point(-100, -400, -110))
+                        .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.6)),
         //מנורה 1
                 new Sphere(11, new Point(15, -140, -150)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)),
@@ -423,6 +426,7 @@ public class Project1 {
 //                new SpotLight(new Color(1000, 600, 0), new Point(0, -230, -130), new Vector(-1, -1, -2)) //
 //                        .setkL(0.0004).setkQ(0.0000006));
         scene.lights.add(new PointLight(new Color(white), new Point(0,-230,-130)).setkL(0.0004).setkQ(0.0000006));
+
 
 
         //ספוטים
