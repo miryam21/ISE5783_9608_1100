@@ -418,7 +418,7 @@ public class Project1 {
                         .setEmission( new Color(white)),
                 new Cylinder( new Ray(new Point(127,-330,-115),new Vector(0,0,-1)),10,15)
                         .setEmission( new Color(white)),
-//גלילי נייר שמאל
+//גלילי נייר שמאל f
                 new Cylinder( new Ray(new Point(-85,-330,-128),new Vector(0,0,-1)),10,15)
                         .setEmission( new Color(white)),
                 new Cylinder( new Ray(new Point(-115,-330,-128),new Vector(0,0,-1)),10,15)
