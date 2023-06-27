@@ -15,13 +15,13 @@ public class Project1 {
     public void room() {
 //         Camera camera = new Camera(new Point(0, -150, 800), new Vector(0, 0, -1), new Vector(0, 1, 0))
 //              .setVPSize(200, 200).setVPDistance(400);
-//
+
 //          Camera camera = new Camera(new Point(1100, -50, -250), new Vector(-1, 0, 0), new Vector(0, 0, 1))
 //        .setVPSize(200, 200).setVPDistance(400);
 
 //        Camera camera = new Camera(new Point(10, 1200, -200), new Vector(0, -1, 0), new Vector(1 / 2, 0, 1))
 //        .setVPSize(200, 200).setVPDistance(1000);
-// רגילההה
+// מצלמה קידמית
         Camera camera = new Camera(new Point(10, 1200, -200), new Vector(0, -1, 0), new Vector(1 / 2, 0, 1))
                 .setVPSize(200, 200).setVPDistance(700);
 
@@ -261,27 +261,27 @@ public class Project1 {
                 ).setEmission(new Color(BLACK)),
 
 
-////                קיר שמאלי
-//        new Polygon(
-//                new Point(140, -400, -90),
-//                new Point(140, -400, -280),
-//                new Point(140, 0, -280),
-//                new Point(140, 0, -90)
-//        ).setEmission(new Color(185,202,222)),
-//                //קיר ימני
-//                new Polygon(
-//                        new Point(-120, -400, -90),
-//                        new Point(-120, 0, -90),
-//                        new Point(-120, 0, -280),
-//                        new Point(-120, -400, -280)
-//                ).setEmission(new Color(185,202,222)),
+//                קיר שמאלי
+        new Polygon(
+                new Point(140, -400, -90),
+                new Point(140, -400, -280),
+                new Point(140, 0, -280),
+                new Point(140, 0, -90)
+        ).setEmission(new Color(185,202,222)),
+                //קיר ימני
+                new Polygon(
+                        new Point(-120, -400, -90),
+                        new Point(-120, 0, -90),
+                        new Point(-120, 0, -280),
+                        new Point(-120, -400, -280)
+                ).setEmission(new Color(185,202,222)),
         //תקרה
-//        new Polygon(
-//                new Point(140, -400, -90),
-//                new Point(-120, -400, -90),
-//                new Point(-120, 0, -90),
-//                new Point(140, 0, -90)
-//        ).setEmission(new Color(LIGHT_GRAY)),
+        new Polygon(
+                new Point(140, -400, -90),
+                new Point(-120, -400, -90),
+                new Point(-120, 0, -90),
+                new Point(140, 0, -90)
+        ).setEmission(new Color(LIGHT_GRAY)),
 
 
                 //שיש
@@ -298,18 +298,18 @@ public class Project1 {
         //מדפים
         //מדף שמאל
                 new Cuboid(
-                            new Point(100, -300, -200), 60, 80, 5,new Color(158,116, 39)),
+                            new Point(90, -300, -200), 50, 70, 5,new Color(158,116, 39)),
                     new Cuboid(
-                            new Point(100, -300, -170), 60, 80, 5,new Color(158,116, 39)),
+                            new Point(90, -300, -170), 50, 70, 5,new Color(158,116, 39)),
                     new Cuboid(
-                            new Point(100, -300, -140), 60, 80, 5,new Color(158,116, 39)),
+                            new Point(90, -300, -140), 50, 70, 5,new Color(158,116, 39)),
         //מדף ימין
                 new Cuboid(
-                        new Point(-140, -300, -200), 60, 80, 5,new Color(158,116, 39)),
+                        new Point(-115, -300, -200), 50, 70, 5,new Color(158,116, 39)),
                 new Cuboid(
-                        new Point(-140, -300, -170), 60, 80, 5,new Color(158,116, 39)),
+                        new Point(-115, -300, -170), 50, 70, 5,new Color(158,116, 39)),
                 new Cuboid(
-                        new Point(-140, -300, -140), 60, 80, 5,new Color(158,116, 39)),
+                        new Point(-115, -300, -140), 50, 70, 5,new Color(158,116, 39)),
 
         //מראה מרכזית
                 new Polygon(
@@ -326,10 +326,10 @@ public class Project1 {
 
 //        כיור
         new Polygon(
-                new Point(65, -350, -240),
-                new Point(-45, -350, -240),
-                new Point(-45, -150, -240),
-                new Point(65, -150, -240)
+                new Point(65, -390, -234),
+                new Point(-45, -390, -234),
+                new Point(-45, -290, -234),
+                new Point(65, -290, -234)
         ).setEmission(new Color(234, 235, 240)),
         new Polygon(
                 new Point(65, -350, -240),
@@ -338,29 +338,30 @@ public class Project1 {
                 new Point(-45, -350, -240)
         ).setEmission(new Color(234, 235, 240)),
         new Polygon(
-                new Point(65, -350, -240),
-                new Point(65, -350, -225),
-                new Point(65, -150, -225),
-                new Point(65, -150, -240)
+                new Point(65, -390, -244),
+                new Point(65, -390, -226),
+                new Point(65, -290, -226),
+                new Point(65, -290, -244)
+        ).setEmission(new Color(234, 235, 241)),
+        new Polygon(
+                new Point(-45, -390, -244),
+                new Point(-45, -390, -226),
+                new Point(-45, -290, -226),
+                new Point(-45, -290, -244)
         ).setEmission(new Color(234, 235, 240)),
         new Polygon(
-                new Point(-45, -350, -240),
-                new Point(-45, -350, -225),
-                new Point(-45, -150, -225),
-                new Point(-45, -150, -240)
-        ).setEmission(new Color(234, 235, 240)),
-        new Polygon(
-                new Point(65, -150, -240),
-                new Point(-45, -150, -240),
-                new Point(-45, -150, -225),
-                new Point(65, -150, -225)
+                new Point(65, -290, -244),
+                new Point(-45, -290, -244),
+                new Point(-45, -290, -226),
+                new Point(65, -290, -226)
         ).setEmission(new Color(234, 235, 240)),
                 new Cuboid(
-                        new Point(-45, -200, -226), 110,200 , 15,new Color(146,206,223)),
-                new Cylinder(new Ray(new Point(43,-400,-212), new Vector(0,1,0)),4,20),
-                new Cylinder(new Ray(new Point(-28,-400,-212), new Vector(0,1,0)),4,20),
-                new Sphere(4, new Point(43, -380, -213)).setEmission(new Color(BLACK)),
-                new Sphere(4, new Point(-28, -380, -213)).setEmission(new Color(black)),
+                        new Point(-43, -290, -226), 106,98 , 15,new Color(146,206,223)),
+//                ברזים
+                new Cylinder(new Ray(new Point(43,-400,-212), new Vector(0,1,0)),4,30),
+                new Cylinder(new Ray(new Point(-28,-400,-212), new Vector(0,1,0)),4,30),
+                new Sphere(4, new Point(43, -370, -213)).setEmission(new Color(BLACK)),
+                new Sphere(4, new Point(-28, -370, -213)).setEmission(new Color(black)),
                 //ספוטים:
                 //שמאל:
                 new Sphere(4, new Point(-37, -400, -135))
@@ -412,18 +413,18 @@ public class Project1 {
                  new Cylinder( new Ray(new Point(0,-230,-100),new Vector(0,0,-1)),0.7,15)
                          .setEmission( new Color(BLACK)),
 //גלילי נייר שמאל
-                new Cylinder( new Ray(new Point(140,-330,-128),new Vector(0,0,-1)),10,15)
+                new Cylinder( new Ray(new Point(129,-330,-128),new Vector(0,0,-1)),10,15)
                         .setEmission( new Color(white)),
-                new Cylinder( new Ray(new Point(110,-330,-128),new Vector(0,0,-1)),10,15)
+                new Cylinder( new Ray(new Point(100,-330,-128),new Vector(0,0,-1)),10,15)
                         .setEmission( new Color(white)),
-                new Cylinder( new Ray(new Point(127,-330,-115),new Vector(0,0,-1)),10,15)
+                new Cylinder( new Ray(new Point(115,-330,-115),new Vector(0,0,-1)),10,15)
                         .setEmission( new Color(white)),
-//גלילי נייר שמאל f
-                new Cylinder( new Ray(new Point(-85,-330,-128),new Vector(0,0,-1)),10,15)
+//גלילי נייר שמאל
+                new Cylinder( new Ray(new Point(-75,-330,-128),new Vector(0,0,-1)),10,15)
                         .setEmission( new Color(white)),
-                new Cylinder( new Ray(new Point(-115,-330,-128),new Vector(0,0,-1)),10,15)
+                new Cylinder( new Ray(new Point(-105,-330,-128),new Vector(0,0,-1)),10,15)
                         .setEmission( new Color(white)),
-                new Cylinder( new Ray(new Point(-82,-330,-115),new Vector(0,0,-1)),10,15)
+                new Cylinder( new Ray(new Point(-89,-330,-115),new Vector(0,0,-1)),10,15)
                         .setEmission( new Color(white)),
 
 //סבון בקבוק
