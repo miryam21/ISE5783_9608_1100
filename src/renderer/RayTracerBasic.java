@@ -15,7 +15,6 @@ import static primitives.Util.alignZero;
  */
 public class RayTracerBasic extends RayTracerBase {
 
-    private static final double DELTA = 0.1;
     private static final int MAX_CALC_COLOR_LEVEL = 10;
     private static final double MIN_CALC_COLOR_K = 0.001;
     private static final Double3 INITIAL_K = Double3.ONE;
@@ -129,6 +128,7 @@ public class RayTracerBasic extends RayTracerBase {
 
         return color;
     }
+
 
     private Color calcDiffusive(Material material, Vector light, Vector n, Color lightIntensity) {
         // the phong model formula for the diffusive effect: 𝒌𝑫 ∙| 𝒍 ∙ 𝒏 |∙ 𝑰
