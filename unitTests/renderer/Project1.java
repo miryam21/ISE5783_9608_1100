@@ -384,26 +384,29 @@ public class Project1 {
                 new Sphere(4, new Point(57, -400, -195))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
 
-                new Cylinder( new Ray(new Point(0,-230,-120),new Vector(0,0,-1)),5,30)
-                        .setEmission( new Color(BLUE)),
+
 
                 new Sphere(15, new Point(120, -400, -110))
-                        .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.6)),
+                        .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.9)),
 
                 new Sphere(15, new Point(-100, -400, -110))
-                        .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.6)),
+                        .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.9)),
         //מנורה 1
                 new Sphere(11, new Point(15, -140, -150)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)),
-        // מנורה קטנה 2
+                new Cylinder( new Ray(new Point(15,-140,-150),new Vector(0,0,1)),0.7,41)
+                        .setEmission( new Color(BLACK)),
+        // מנורה קטנה
                 new Sphere(8, new Point(25, -300, -123)).setEmission(new Color(BLUE))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)),
-
-                new Cuboid(new Point(110, -300, -160),20,20,10,new Color(GRAY)),
+                new Cylinder( new Ray(new Point(25,-300,-123),new Vector(0,0,1)),0.7,25)
+                        .setEmission( new Color(BLACK)),
+//                new Cuboid(new Point(110, -300, -160),20,20,10,new Color(GRAY)),
         // מנורה 3
                 new Sphere(15d, new Point(0, -230, -130)).setEmission(new Color(BLUE))
-                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)));
-
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)),
+                 new Cylinder( new Ray(new Point(0,-230,-100),new Vector(0,0,-1)),0.7,15)
+                         .setEmission( new Color(BLACK)));
 
 
 
@@ -456,8 +459,9 @@ public class Project1 {
                 .setkL(0.001).setkQ(0.0002));
         scene.lights.add(new PointLight(new Color(1000, 600, 0), new Point( 57, -400, -195))
                 .setkL(0.001).setkQ(0.0002));
-        scene.lights.add(new PointLight(new Color(1000,600,0),new Point(120, -300, -110)).
-                        setkQ(0.00000002).setkL(0.001));
+
+        scene.lights.add(new PointLight(new Color(1000,600,0),new Point(120, -399, -110)).
+                        setkQ(0.000000002).setkL(0.0001));
 
 
 
