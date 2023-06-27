@@ -13,8 +13,8 @@ public class Project1 {
     private Scene scene = new Scene("Test scene").setBackground(new Color(WHITE)).setBackground(new Color(GRAY));
     @Test
     public void room() {
-         Camera camera = new Camera(new Point(0, -150, 800), new Vector(0, 0, -1), new Vector(0, 1, 0))
-              .setVPSize(200, 200).setVPDistance(400);
+//         Camera camera = new Camera(new Point(0, -150, 800), new Vector(0, 0, -1), new Vector(0, 1, 0))
+//              .setVPSize(200, 200).setVPDistance(400);
 
 //          Camera camera = new Camera(new Point(1100, -50, -250), new Vector(-1, 0, 0), new Vector(0, 0, 1))
 //        .setVPSize(200, 200).setVPDistance(400);
@@ -22,8 +22,8 @@ public class Project1 {
 //        Camera camera = new Camera(new Point(10, 1200, -200), new Vector(0, -1, 0), new Vector(1 / 2, 0, 1))
 //        .setVPSize(200, 200).setVPDistance(1000);
 
-//        Camera camera = new Camera(new Point(10, 1200, -200), new Vector(0, -1, 0), new Vector(1 / 2, 0, 1))
-//                .setVPSize(200, 200).setVPDistance(700);
+        Camera camera = new Camera(new Point(10, 1200, -200), new Vector(0, -1, 0), new Vector(1 / 2, 0, 1))
+                .setVPSize(200, 200).setVPDistance(700);
 
         scene.setAmbientLight(new AmbientLight(new Color(WHITE), 0.15));
 
@@ -275,13 +275,13 @@ public class Project1 {
 //                        new Point(-120, 0, -280),
 //                        new Point(-120, -400, -280)
 //                ).setEmission(new Color(185,202,222)),
-//        //תקרה
-//        new Polygon(
-//                new Point(140, -400, -90),
-//                new Point(-120, -400, -90),
-//                new Point(-120, 0, -90),
-//                new Point(140, 0, -90)
-//        ).setEmission(new Color(LIGHT_GRAY)),
+        //תקרה
+        new Polygon(
+                new Point(140, -400, -90),
+                new Point(-120, -400, -90),
+                new Point(-120, 0, -90),
+                new Point(140, 0, -90)
+        ).setEmission(new Color(LIGHT_GRAY)),
 
 
                 //שיש
@@ -359,7 +359,8 @@ public class Project1 {
                         new Point(-45, -200, -226), 110,200 , 15,new Color(146,206,223)),
                 new Cylinder(new Ray(new Point(43,-400,-212), new Vector(0,1,0)),4,20),
                 new Cylinder(new Ray(new Point(-28,-400,-212), new Vector(0,1,0)),4,20),
-                new Sphere(4, new Point(43, -380, -213)).setEmission(new Color(RED)),
+                new Sphere(4, new Point(43, -380, -213)).setEmission(new Color(BLACK)),
+                new Sphere(4, new Point(-28, -380, -213)).setEmission(new Color(black)),
                 //ספוטים:
                 //שמאל:
                 new Sphere(4, new Point(-37, -400, -135))
