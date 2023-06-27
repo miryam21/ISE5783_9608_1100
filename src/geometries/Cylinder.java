@@ -1,67 +1,83 @@
 package geometries;
 
-import primitives.Ray;
-import primitives.Vector;
-import primitives.Point;
-
+import primitives.*;
+import java.util.ArrayList;
+import java.util.List;
 import static primitives.Util.*;
 
-/**
- * The Cylinder class represents a cylinder in 3D space, which is a subclass of the Tube class.
- *
- * @author Maayan Amar
- */
-public class Cylinder extends Tube {
-    /**
-     * The height of the cylinder.
-     */
+public class Cylinder extends Tube{
+
     private final double height;
 
-    /**
-     * Constructs a new cylinder with the given height, axisRay, and radius.
-     *
-     * @param height  The height of the cylinder.
-     * @param axisRay The axisRay of the cylinder.
-     * @param radius  The radius of the cylinder.
-     */
-    public Cylinder(double height, Ray axisRay, double radius) {
-
+    //region constructor
+    public Cylinder(Ray axisRay, double radius, double height) {
         super(axisRay, radius);
         this.height = height;
     }
+    //endregion
 
+    //region toString override
     /**
-     * Returns the height of the cylinder.
-     *
-     * @return The height of the cylinder.
+     * format: "Cylinder{ axisRay= Ray { p0 = Point : xyz = {(x, y, z)}, dir = Vector : xyz = (x, y, z) }, radius= radius, height= height } "
      */
-    public double getHeight() {
-        return height;
+    @Override
+    public String toString() {
+        return "" +
+                "axisRay=" + axisRay +
+                ", radius=" + radius +
+                ", height=" + height +
+                '}';
     }
+    //endregion
 
-
+    // region getNormal
     @Override
     public Vector getNormal(Point point) {
-        Point p0 = axisRay.getP0();
-        Vector v = axisRay.getDir();
+        Point axisRayP0 = axisRay.getP0();
+        if (point.distance(axisRayP0) <= radius)    // on the base circle of the cylinder.
+            return axisRay.getDir().scale(-1);
 
-        if (point.equals(p0))
-            return v;
+        Vector heightVector = axisRay.getDir().scale(height);
+        axisRayP0 = axisRayP0.add(heightVector);
 
-        // projection of P-p0 on the ray:
-        Vector u = point.subtract(p0);
+        if (point.distance(axisRayP0) <= radius)    // on the second base circle of the cylinder.
+            return axisRay.getDir();
 
-        // distance from p0 to the o who is in from of point
-        double t = alignZero(u.dotProduct(v));
+        return super.getNormal(point);              // on the casing of the cylinder.
+    }
+    //endregion
 
-        // if the point is at a base
-        if (t == 0 || isZero(height - t))
-            return v;
+    //region findGeoIntersectionsHelper
+    @Override
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance) {
+        List<GeoPoint> helpIntersections = super.findGeoIntersectionsHelper(ray, maxDistance);
 
-        //the other point on the axis facing the given point
-        Point o = p0.add(v.scale(t));
+        List<GeoPoint> pointList = new ArrayList<>();
 
-        return point.subtract(o).normalize();
-}
+        if(helpIntersections != null) {
+            for (GeoPoint geoPoint : helpIntersections) {
+                Point point = geoPoint.point;
+                double projection = point.subtract(axisRay.getP0()).dotProduct(axisRay.getDir());
+                if (alignZero(projection) > 0 && alignZero(projection - this.height) < 0)
+                    pointList.add(new GeoPoint(this, point));
+            }
+        }
+
+        // intersect with base
+        Circle base = new Circle(axisRay.getP0(), radius, axisRay.getDir());
+        helpIntersections = base.findGeoIntersectionsHelper(ray, maxDistance);
+        if(helpIntersections != null)
+            pointList.add(new GeoPoint(this, helpIntersections.get(0).point));
+
+        base = new Circle(axisRay.getPoint(height), radius, axisRay.getDir());
+        helpIntersections = base.findGeoIntersectionsHelper(ray, maxDistance);
+        if(helpIntersections != null)
+            pointList.add(new GeoPoint(this, helpIntersections.get(0).point));
+
+        if (pointList.size() == 0)
+            return null;
+        return pointList;
+    }
+    //endregion
 
 }

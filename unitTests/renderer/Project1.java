@@ -384,8 +384,8 @@ public class Project1 {
                 new Sphere(4, new Point(57, -400, -195))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
 
-        new Cylinder(20,new Ray(new Point(-50, -200, -150),new Vector(0,0,1)),30)
-                .setEmission(new Color(RED)),
+                new Cylinder( new Ray(new Point(0,-230,-120),new Vector(0,0,-1)),5,30)
+                        .setEmission( new Color(BLUE)),
 
                 new Sphere(15, new Point(120, -400, -110))
                         .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.6)),
