@@ -13,16 +13,17 @@ public class Project1 {
     private Scene scene = new Scene("Test scene").setBackground(new Color(WHITE)).setBackground(new Color(GRAY));
     @Test
     public void room() {
-//         Camera camera = new Camera(new Point(0, -150, 800), new Vector(0, 0, -1), new Vector(0, 1, 0))
-//              .setVPSize(200, 200).setVPDistance(1000);
+         Camera camera = new Camera(new Point(0, -150, 800), new Vector(0, 0, -1), new Vector(0, 1, 0))
+              .setVPSize(200, 200).setVPDistance(400);
 
 //          Camera camera = new Camera(new Point(1100, -50, -250), new Vector(-1, 0, 0), new Vector(0, 0, 1))
-//        .setVPSize(200, 200).setVPDistance(1000);
+//        .setVPSize(200, 200).setVPDistance(400);
+
 //        Camera camera = new Camera(new Point(10, 1200, -200), new Vector(0, -1, 0), new Vector(1 / 2, 0, 1))
 //        .setVPSize(200, 200).setVPDistance(1000);
 
-        Camera camera = new Camera(new Point(10, 1200, -200), new Vector(0, -1, 0), new Vector(1 / 2, 0, 1))
-                .setVPSize(200, 200).setVPDistance(700);
+//        Camera camera = new Camera(new Point(10, 1200, -200), new Vector(0, -1, 0), new Vector(1 / 2, 0, 1))
+//                .setVPSize(200, 200).setVPDistance(700);
 
         scene.setAmbientLight(new AmbientLight(new Color(WHITE), 0.15));
 
@@ -260,27 +261,27 @@ public class Project1 {
                 ).setEmission(new Color(BLACK)),
 
 
-//                קיר שמאלי
-        new Polygon(
-                new Point(140, -400, -90),
-                new Point(140, -400, -280),
-                new Point(140, 0, -280),
-                new Point(140, 0, -90)
-        ).setEmission(new Color(185,202,222)),
-                //קיר ימני
-                new Polygon(
-                        new Point(-120, -400, -90),
-                        new Point(-120, 0, -90),
-                        new Point(-120, 0, -280),
-                        new Point(-120, -400, -280)
-                ).setEmission(new Color(185,202,222)),
-        //תקרה
-        new Polygon(
-                new Point(140, -400, -90),
-                new Point(-120, -400, -90),
-                new Point(-120, 0, -90),
-                new Point(140, 0, -90)
-        ).setEmission(new Color(LIGHT_GRAY)),
+////                קיר שמאלי
+//        new Polygon(
+//                new Point(140, -400, -90),
+//                new Point(140, -400, -280),
+//                new Point(140, 0, -280),
+//                new Point(140, 0, -90)
+//        ).setEmission(new Color(185,202,222)),
+//                //קיר ימני
+//                new Polygon(
+//                        new Point(-120, -400, -90),
+//                        new Point(-120, 0, -90),
+//                        new Point(-120, 0, -280),
+//                        new Point(-120, -400, -280)
+//                ).setEmission(new Color(185,202,222)),
+//        //תקרה
+//        new Polygon(
+//                new Point(140, -400, -90),
+//                new Point(-120, -400, -90),
+//                new Point(-120, 0, -90),
+//                new Point(140, 0, -90)
+//        ).setEmission(new Color(LIGHT_GRAY)),
 
 
                 //שיש
@@ -356,7 +357,9 @@ public class Project1 {
         ).setEmission(new Color(234, 235, 240)),
                 new Cuboid(
                         new Point(-45, -200, -226), 110,200 , 15,new Color(146,206,223)),
-
+                new Cylinder(new Ray(new Point(43,-400,-212), new Vector(0,1,0)),4,20),
+                new Cylinder(new Ray(new Point(-28,-400,-212), new Vector(0,1,0)),4,20),
+                new Sphere(4, new Point(43, -380, -213)).setEmission(new Color(RED)),
                 //ספוטים:
                 //שמאל:
                 new Sphere(4, new Point(-37, -400, -135))
@@ -386,10 +389,10 @@ public class Project1 {
 
 
 
-                new Sphere(15, new Point(120, -400, -110))
+                new Sphere(13, new Point(120, -400, -110))
                         .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.9)),
 
-                new Sphere(15, new Point(-100, -400, -110))
+                new Sphere(13, new Point(-100, -400, -110))
                         .setMaterial(new Material().setKD(0.5).setKS(0.2).setKT(0.9)),
         //מנורה 1
                 new Sphere(11, new Point(15, -140, -150)).setEmission(new Color(BLUE))
@@ -434,7 +437,7 @@ public class Project1 {
 
 
         scene.lights.add(new SpotLight(new Color(GREEN), new Point(10, 0, -100), new Vector(0,-1,-0.5))
-               .setkL(4E-4).setkQ(2E-10));
+               .setkL(4E-4).setkQ(2E-5));
 
 
         //ספוטים
