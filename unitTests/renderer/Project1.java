@@ -22,7 +22,7 @@ public class Project1 {
 //        .setVPSize(200, 200).setVPDistance(1000);
 
         Camera camera = new Camera(new Point(10, 1200, -200), new Vector(0, -1, 0), new Vector(1 / 2, 0, 1))
-                .setVPSize(200, 200).setVPDistance(1000);
+                .setVPSize(200, 200).setVPDistance(700);
 
         scene.setAmbientLight(new AmbientLight(new Color(WHITE), 0.15));
 
@@ -260,7 +260,7 @@ public class Project1 {
                 ).setEmission(new Color(BLACK)),
 
 
-                //קיר שמאלי
+//                קיר שמאלי
         new Polygon(
                 new Point(140, -400, -90),
                 new Point(140, -400, -280),
@@ -427,6 +427,11 @@ public class Project1 {
 //                        .setkL(0.0004).setkQ(0.0000006));
         scene.lights.add(new PointLight(new Color(white), new Point(0,-230,-130)).setkL(0.0004).setkQ(0.0000006));
 
+
+
+
+        scene.lights.add(new SpotLight(new Color(GREEN), new Point(10, 0, -100), new Vector(0,-1,-0.5))
+               .setkL(4E-4).setkQ(2E-10));
 
 
         //ספוטים
