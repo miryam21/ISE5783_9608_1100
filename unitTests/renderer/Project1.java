@@ -456,7 +456,8 @@ public class Project1 {
                 .setkL(0.001).setkQ(0.0002));
         scene.lights.add(new PointLight(new Color(1000, 600, 0), new Point( 57, -400, -195))
                 .setkL(0.001).setkQ(0.0002));
-
+        scene.lights.add(new PointLight(new Color(1000,600,0),new Point(120, -300, -110)).
+                        setkQ(0.00000002).setkL(0.001));
 
 
 
