@@ -1,6 +1,7 @@
 package renderer;
 import geometries.*;
 import lighting.AmbientLight;
+import lighting.DirectionalLight;
 import lighting.PointLight;
 import lighting.SpotLight;
 import org.junit.jupiter.api.Test;
@@ -297,8 +298,6 @@ public class Project1 {
         //מדף שמאל
                 new Cuboid(
                             new Point(100, -300, -200), 80, 80, 5,new Color(158,116, 39)),
-                    // tryyyy
-                    new Cuboid(new Point(60,-380,-190),20,20,10,new Color(blue)),
                     new Cuboid(
                             new Point(100, -300, -170), 80, 80, 5,new Color(158,116, 39)),
                     new Cuboid(
@@ -317,11 +316,11 @@ public class Project1 {
                 new Point(-30, -399, -130),
                 new Point(-30, -399, -200),
                 new Point(50, -399, -200)
-        ).setEmission(new Color(black)).setMaterial(new Material().setKR(0.9)),
+        ).setEmission(new Color(BLACK)).setMaterial(new Material().setKR(0.9)),
         new Triangle(new Point(50, -399, -130),new Point(-30, -399, -130),new Point(10, -399, -115))
-                .setEmission(new Color(black)).setMaterial(new Material().setKR(0.9)),
+                .setEmission(new Color(BLACK)).setMaterial(new Material().setKR(0.9)),
         new Triangle(new Point(50, -399, -200),new Point(-30, -399, -200),new Point(10, -399, -215))
-                        .setEmission(new Color(black)).setMaterial(new Material().setKR(0.9)),
+                        .setEmission(new Color(BLACK)).setMaterial(new Material().setNShininess(30).setKR(0.9)),
 
 
 //        כיור
@@ -384,20 +383,25 @@ public class Project1 {
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
                 new Sphere(4, new Point(57, -400, -195)).setEmission(new Color(blue))
                         .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(1).setKT(0.6)),
-        new Cylinder(10,new Ray(new Point(0, -200, -150),new Vector(-1,0,0)),10)
+
+        new Cylinder(20,new Ray(new Point(-50, -200, -150),new Vector(0,0,1)),30)
                 .setEmission(new Color(RED)),
+
+                new Sphere(20, new Point(110, -400, -100)).setEmission(new Color(BLUE))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)),
         //מנורה 1
                 new Sphere(11, new Point(15, -140, -150)).setEmission(new Color(BLUE))
-                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)),
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)),
         // מנורה קטנה 2
                 new Sphere(8, new Point(25, -300, -123)).setEmission(new Color(BLUE))
-                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)),
-                // try
-//                new Sphere(8, new Point(-15, -300, -123)).setEmission(new Color(BLUE))
-//                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)),
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)),
+
+                new Cuboid(new Point(110, -300, -160),20,20,10,new Color(GRAY)),
         // מנורה 3
                 new Sphere(15d, new Point(0, -230, -130)).setEmission(new Color(BLUE))
-                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(30).setKT(0.6)));
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.6)));
+
+
 
 
 
@@ -439,6 +443,8 @@ public class Project1 {
                 .setkL(0.001).setkQ(0.0002));
         scene.lights.add(new PointLight(new Color(1000, 600, 0), new Point( 57, -400, -195))
                 .setkL(0.001).setkQ(0.0002));
+
+
 
 
         ImageWriter imageWriter = new ImageWriter("Project1", 600, 600);
