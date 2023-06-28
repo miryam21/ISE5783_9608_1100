@@ -448,9 +448,12 @@ public class Project1 {
 //סבון בקבוק
                 new Cylinder( new Ray(new Point(90,-240,-225),new Vector(0,0,-1)),8,15)
                         .setEmission( new Color(BLACK)),
+                new Cylinder( new Ray(new Point(90,-240,-225),new Vector(0,0,-1)),8.0011,7)
+                        .setEmission( new Color(LIGHT_GRAY)),
                 new Sphere(8, new Point(90,-240,-225)).setEmission(new Color(BLACK)),
                 new Cylinder(new Ray(new Point(90,-240,-215),new Vector(0,0,-1)),4,6)
                         .setEmission(new Color(BLACK)));
+
 
 
         //  אור 1
