@@ -426,6 +426,24 @@ public class Project1 {
                         .setEmission( new Color(white)),
                 new Cylinder( new Ray(new Point(-89,-330,-115),new Vector(0,0,-1)),10,15)
                         .setEmission( new Color(white)),
+//  מדף סבון בקבוק
+                new Cylinder( new Ray(new Point(125,-330,-160),new Vector(0,0,-1)),6,12)
+                        .setEmission( new Color(9,28,87)),
+                new Sphere(6, new Point(125,-330,-160)).setEmission(new Color(9,28,87)),
+                new Cylinder(new Ray(new Point(125,-330,-150),new Vector(0,0,-1)),2,4)
+                        .setEmission(new Color(9,28,87)),
+
+                new Cylinder( new Ray(new Point(110,-330,-160),new Vector(0,0,-1)),6,12)
+                        .setEmission( new Color(9,28,87)).setMaterial(new Material().setKT(0.6)),
+//  מדף סבון בקבוק
+                new Cylinder( new Ray(new Point(-105,-330,-160),new Vector(0,0,-1)),6,12)
+                        .setEmission( new Color(9,28,87)),
+                new Sphere(6, new Point(-105,-330,-160)).setEmission(new Color(9,28,87)),
+                new Cylinder(new Ray(new Point(-105,-330,-150),new Vector(0,0,-1)),2,4)
+                        .setEmission(new Color(9,28,87)),
+
+                new Cylinder( new Ray(new Point(-90,-330,-160),new Vector(0,0,-1)),6,12)
+                        .setEmission( new Color(9,28,87)).setMaterial(new Material().setKT(0.6)),
 
 //סבון בקבוק
                 new Cylinder( new Ray(new Point(90,-240,-225),new Vector(0,0,-1)),8,15)
@@ -433,8 +451,7 @@ public class Project1 {
                 new Sphere(8, new Point(90,-240,-225)).setEmission(new Color(BLACK)),
                 new Cylinder(new Ray(new Point(90,-240,-215),new Vector(0,0,-1)),4,6)
                         .setEmission(new Color(BLACK)));
-//        scene.geometries.add(new Sphere(40, new Point(40,-200,-200)).setEmission(new Color(GREEN))
-//                        .setMaterial(new Material().setKD(0.4).setKS(0.3).setNShininess(100).setKT(0.3)));
+
 
         //  אור 1
 //        scene.lights.add( //
