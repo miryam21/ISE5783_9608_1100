@@ -445,6 +445,14 @@ public class Project1 {
                 new Cylinder( new Ray(new Point(-90,-330,-160),new Vector(0,0,-1)),6,12)
                         .setEmission( new Color(9,28,87)).setMaterial(new Material().setKT(0.6)),
 
+// בועות סבון
+                new Sphere(4, new Point(0, -300, -215)).setEmission(new Color(CYAN))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.8)),
+                new Sphere(5, new Point(10, -300, -207)).setEmission(new Color(CYAN))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.8)),
+                new Sphere(3, new Point(8, -300, -220)).setEmission(new Color(CYAN))
+                        .setMaterial(new Material().setKD(0.2).setKS(0.2).setNShininess(40).setKT(0.8)),
+
 //סבון בקבוק
                 new Cylinder( new Ray(new Point(90,-240,-225),new Vector(0,0,-1)),8,15)
                         .setEmission( new Color(BLACK)),
